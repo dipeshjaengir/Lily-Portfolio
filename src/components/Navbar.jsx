@@ -19,7 +19,8 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   const isHome = location.pathname === '/';
-  const isDarkPage = theme === 'dark';
+  const isDarkTheme = theme === 'dark';
+  const isDarkHeader = isDarkTheme || (isHome && !scrolled);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -53,7 +54,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 w-full z-[99] transition-all duration-500 ${
         scrolled
-          ? isDarkPage
+          ? isDarkHeader
             ? 'bg-gallery-dark/90 border-b border-white/5 backdrop-blur-sm'
             : 'bg-warm-white/95 border-b border-black/5 backdrop-blur-sm'
           : 'bg-transparent'
@@ -70,7 +71,7 @@ const Navbar = () => {
         <Link
           to="/"
           className="cursor-pointer transition-all duration-300 hover:opacity-75 flex items-center"
-          style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
+          style={{ color: isDarkHeader ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
         >
           <Logo animate={false} />
         </Link>
@@ -88,7 +89,9 @@ const Navbar = () => {
                     className={`relative py-1 cursor-pointer transition-colors duration-300 font-medium ${
                       isActive 
                         ? 'text-accent-yellow-border' 
-                        : 'text-gallery-dark/65 dark:text-warm-white/65 hover:text-gallery-dark dark:hover:text-warm-white'
+                        : isDarkHeader 
+                          ? 'text-warm-white/75 hover:text-white' 
+                          : 'text-gallery-dark/65 dark:text-warm-white/65 hover:text-gallery-dark dark:hover:text-warm-white'
                     }`}
                   >
                     {link.name}
@@ -109,7 +112,11 @@ const Navbar = () => {
           {/* Premium Theme Toggle button */}
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-full border border-black/15 dark:border-white/15 text-gallery-dark dark:text-warm-white hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center justify-center w-8 h-8 md:w-8.5 md:h-8.5 shadow-sm"
+            className="p-1.5 rounded-full border transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center justify-center w-8 h-8 md:w-8.5 md:h-8.5 shadow-sm"
+            style={{
+              borderColor: isDarkHeader ? 'rgba(250, 249, 246, 0.15)' : 'rgba(12, 12, 12, 0.15)',
+              color: isDarkHeader ? '#FAF9F6' : 'var(--color-gallery-dark)'
+            }}
             title={theme === 'light' ? "Switch to Dark Gallery" : "Switch to Light Gallery"}
             aria-label="Toggle theme"
           >
@@ -119,7 +126,8 @@ const Navbar = () => {
           {/* Mobile Hamburger toggle */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 cursor-pointer text-gallery-dark dark:text-warm-white hover:opacity-75 transition-all duration-300"
+            className="lg:hidden p-1.5 cursor-pointer hover:opacity-75 transition-all duration-300"
+            style={{ color: isDarkHeader ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
             aria-label="Open navigation menu"
           >
             <Menu size={20} />
@@ -136,7 +144,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className={`fixed inset-0 h-[100dvh] w-full z-[9999] flex flex-col transition-colors duration-500 ${
-              isDarkPage ? 'bg-gallery-dark text-white' : 'bg-warm-white text-gallery-dark'
+              isDarkTheme ? 'bg-gallery-dark text-white' : 'bg-warm-white text-gallery-dark'
             }`}
             style={{
               paddingTop: 'env(safe-area-inset-top, 0px)',

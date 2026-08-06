@@ -25,7 +25,7 @@ const About = () => {
         
         {/* Header Title */}
         <header className="mb-16 md:mb-24 text-left">
-          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 mb-3 block">
+          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/60 dark:text-warm-white/45 mb-3 block">
             THE ARTIST BEHIND THE EXCHANGES
           </span>
           <h1 
@@ -108,16 +108,16 @@ const About = () => {
         </section>
 
         {/* Narrative Story (Mother's resilience & Gratitude) */}
-        <section className="bg-neutral-50 dark:bg-gallery-black/40 border-y border-black/[0.03] dark:border-white/[0.03] py-24 md:py-32 px-6 md:px-12 mb-24 md:mb-36 text-left transition-colors duration-500">
+        <section className="bg-soft-white dark:bg-gallery-black/40 border-y border-black/[0.03] dark:border-white/[0.03] py-24 md:py-32 px-6 md:px-12 mb-24 md:mb-36 text-left transition-colors duration-500">
           <div className="max-w-4xl mx-auto">
-            <span className="text-[9px] font-sans tracking-[0.3em] text-neutral-400 uppercase font-semibold block mb-4">
+            <span className="text-[9px] font-sans tracking-[0.3em] text-gallery-dark/60 dark:text-warm-white/45 uppercase font-semibold block mb-4">
               ARTISTIC RESILIENCE
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-light uppercase tracking-widest text-neutral-800 dark:text-warm-white mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-light uppercase tracking-widest text-gallery-dark dark:text-warm-white mb-10">
               {artistConfig.about.story.title}
             </h2>
 
-            <div className="flex flex-col gap-8 font-sans text-xs md:text-sm leading-relaxed opacity-60 tracking-wider">
+            <div className="flex flex-col gap-8 font-sans text-xs md:text-sm leading-relaxed text-gallery-dark/70 dark:text-warm-white/70 tracking-wider">
               {artistConfig.about.story.paragraphs.map((p, idx) => (
                 <motion.p
                   key={idx}
@@ -140,7 +140,7 @@ const About = () => {
             {/* Left Column: Academic Exhibits Timeline */}
             {artistConfig.timeline?.length > 0 && (
               <div className="lg:col-span-7 text-left">
-                <h2 className="font-serif text-2xl uppercase tracking-wider mb-10 text-neutral-800 dark:text-warm-white">
+                <h2 className="font-serif text-2xl uppercase tracking-wider mb-10 text-gallery-dark dark:text-warm-white">
                   Exhibitions & Timeline
                 </h2>
 
@@ -153,7 +153,7 @@ const About = () => {
                       <span className="text-[10px] font-semibold tracking-wider text-neutral-500 block mb-1">
                         {event.year}
                       </span>
-                      <h4 className="font-serif text-base uppercase font-light text-neutral-900 dark:text-warm-white mb-1.5">
+                      <h4 className="font-serif text-base uppercase font-light text-gallery-dark dark:text-warm-white mb-1.5">
                         {event.title}
                       </h4>
                       <p className="opacity-60 leading-relaxed tracking-wider">
@@ -177,7 +177,7 @@ const About = () => {
                     <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/10 dark:border-white/10" />
                     <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/10 dark:border-white/10" />
 
-                    <span className="font-serif text-3xl md:text-4xl font-light tracking-wide text-neutral-800 dark:text-warm-white mb-2">
+                    <span className="font-serif text-3xl md:text-4xl font-light tracking-wide text-gallery-dark dark:text-warm-white mb-2">
                       {stat.value}
                     </span>
                     <span className="font-sans text-[9px] tracking-[0.2em] opacity-50 uppercase font-semibold">

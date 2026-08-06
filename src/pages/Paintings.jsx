@@ -35,7 +35,7 @@ const Paintings = () => {
 
       {/* Page Header */}
       <header className="max-w-7xl mx-auto mb-16 md:mb-24 text-left">
-        <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 dark:text-warm-white/40 mb-3 block">
+        <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/60 dark:text-warm-white/45 mb-3 block">
           EXHIBITION ROOM 01
         </span>
         <h1 

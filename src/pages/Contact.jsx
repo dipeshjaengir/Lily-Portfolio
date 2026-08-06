@@ -70,7 +70,7 @@ Message: ${formState.message}`;
         
         {/* Left Column: CTA & Social details */}
         <div className="w-full lg:w-5/12 text-left">
-          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 mb-3 block">
+          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/60 dark:text-warm-white/45 mb-3 block">
             GET IN TOUCH
           </span>
           <h1 
