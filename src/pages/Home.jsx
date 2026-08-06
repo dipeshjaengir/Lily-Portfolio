@@ -83,7 +83,7 @@ const Home = () => {
           </motion.span>
           
           <h1 
-            className="font-serif font-light tracking-widest uppercase leading-[1.1] text-warm-white max-w-4xl select-none"
+            className="font-serif font-light tracking-widest uppercase leading-[1.1] text-gallery-dark dark:text-warm-white max-w-4xl select-none transition-colors duration-500"
             style={{ fontSize: "clamp(1.75rem, 7.5vw, 5.5rem)" }}
           >
             {artistConfig.name.split(" ").map((name, i) => (
@@ -103,7 +103,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
             transition={{ delay: 0.6, duration: 1.0 }}
-            className="font-sans text-xs md:text-sm leading-relaxed max-w-lg mt-8 mb-12 tracking-widest text-warm-white uppercase"
+            className="font-sans text-xs md:text-sm leading-relaxed max-w-lg mt-8 mb-12 tracking-widest text-gallery-dark dark:text-warm-white uppercase transition-colors duration-500"
           >
             {artistConfig.tagline}
           </motion.p>
@@ -117,7 +117,7 @@ const Home = () => {
           >
             <button
               onClick={scrollToFeatured}
-              className="border border-accent-yellow-border bg-accent-yellow-border hover:bg-transparent text-gallery-dark hover:text-white font-sans text-[10px] tracking-[0.25em] uppercase py-3.5 px-9 transition-all duration-300 font-semibold cursor-pointer select-none"
+              className="border border-gallery-dark dark:border-accent-yellow-border bg-gallery-dark dark:bg-transparent hover:bg-transparent dark:hover:bg-accent-yellow-border text-white dark:text-accent-yellow-border hover:text-gallery-dark dark:hover:text-gallery-dark font-sans text-[10px] tracking-[0.25em] uppercase py-3.5 px-9 transition-all duration-300 font-semibold cursor-pointer select-none"
             >
               Explore Exhibition
             </button>

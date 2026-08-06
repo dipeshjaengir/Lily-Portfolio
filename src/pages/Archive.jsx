@@ -75,7 +75,7 @@ const Archive = () => {
                       </div>
                     )}
                     {art.status === 'Not For Sale' && (
-                      <div className="absolute top-3 left-3 z-10 bg-neutral-900/95 dark:bg-white/95 text-[8px] font-sans tracking-[0.25em] text-white dark:text-gallery-dark uppercase py-1 px-2.5 backdrop-blur-xs select-none">
+                      <div className="absolute top-3 left-3 z-10 bg-neutral-100 dark:bg-neutral-800/85 text-[8px] font-sans tracking-[0.25em] text-gallery-dark dark:text-warm-white border border-black/5 dark:border-white/5 uppercase py-1 px-2.5 backdrop-blur-xs select-none">
                         ARCHIVE
                       </div>
                     )}

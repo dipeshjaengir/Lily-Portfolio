@@ -58,12 +58,17 @@ const Navbar = () => {
           : 'bg-transparent py-7'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
         {/* Brand Identity */}
         <Link
           to="/"
-          className="text-sm xs:text-base sm:text-lg md:text-xl font-light tracking-[0.12em] sm:tracking-[0.25em] font-serif uppercase cursor-pointer transition-all duration-300 hover:opacity-75 truncate max-w-[45vw] sm:max-w-none"
-          style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
+          className="font-light font-serif uppercase cursor-pointer transition-all duration-300 hover:opacity-75 select-none"
+          style={{ 
+            color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)', 
+            fontSize: "clamp(0.72rem, 4.2vw, 1.25rem)", 
+            letterSpacing: "clamp(0.12em, 2vw, 0.25em)",
+            whiteSpace: "nowrap"
+          }}
         >
           Lily May Stinson
         </Link>
