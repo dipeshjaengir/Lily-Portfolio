@@ -66,14 +66,7 @@ const Lightbox = ({
     setZoomScale(prev => (prev === 1 ? 1.8 : 1));
   };
 
-  // Mandatory Pre-execution Debugging Log
-  console.log('[Lightbox Runtime State Audit]', {
-    currentTheme: theme,
-    isDarkTheme: theme === 'dark',
-    currentRoute: location.pathname,
-    lightboxBgClasses: 'bg-warm-white/98 dark:bg-black/95',
-    lightboxFrameClasses: 'bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 shadow-2xl'
-  });
+
 
   return (
     <AnimatePresence>
