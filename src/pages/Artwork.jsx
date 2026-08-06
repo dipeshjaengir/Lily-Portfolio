@@ -41,7 +41,7 @@ const Artwork = () => {
   const resolvedImg = getArtworkImage(artwork.localPath, artwork.placeholderUrl);
 
   return (
-    <div className="w-full min-h-screen bg-warm-white text-gallery-dark pt-32 pb-24 px-6 md:px-12 text-left">
+    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 text-left transition-colors duration-500">
       <Helmet>
         <title>{artwork.title ? `${artwork.title} | Lily May Stinson` : 'Artwork Exhibit | Lily May Stinson'}</title>
         <meta name="description" content={artwork.title ? `${artwork.title} - ${artwork.medium || ''} (${artwork.year || ''}) by Lily May Stinson. ${artwork.description || ''}` : "Portfolio item by visual artist Lily May Stinson."} />
@@ -51,7 +51,7 @@ const Artwork = () => {
       <div className="max-w-7xl mx-auto mb-12">
         <Link
           to={`/${artwork.category === 'paintings' ? 'paintings' : artwork.category === 'pen-art' ? 'pen-art' : artwork.category === 'custom' ? 'commissions' : 'archive'}`}
-          className="inline-flex items-center gap-2 text-[10px] font-sans tracking-widest uppercase font-semibold text-gallery-dark/60 hover:text-gallery-dark transition-colors"
+          className="inline-flex items-center gap-2 text-[10px] font-sans tracking-widest uppercase font-semibold text-gallery-dark/60 dark:text-warm-white/60 hover:text-gallery-dark dark:hover:text-warm-white transition-colors"
         >
           <ArrowLeft size={12} /> BACK TO COLLECTION ROOM
         </Link>
@@ -61,11 +61,11 @@ const Artwork = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-24">
         
         {/* Left Column: Image viewer */}
-        <div className="lg:col-span-7 bg-white border border-black/5 p-4 md:p-6 shadow-premium relative flex items-center justify-center">
+        <div className="lg:col-span-7 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 p-4 md:p-6 shadow-premium relative flex items-center justify-center transition-colors duration-500">
           {/* Inner crop lines */}
-          <div className="absolute inset-3.5 border border-black/[0.03] pointer-events-none" />
+          <div className="absolute inset-3.5 border border-black/[0.03] dark:border-white/[0.03] pointer-events-none transition-colors duration-500" />
           
-          <div className="w-full flex items-center justify-center p-1.5 bg-neutral-50/50 border border-black/5">
+          <div className="w-full flex items-center justify-center p-1.5 bg-neutral-50/50 dark:bg-gallery-dark border border-black/5 dark:border-white/5 transition-colors duration-500">
             <img
               src={resolvedImg}
               alt={artwork.title || "Artwork composition"}
@@ -75,9 +75,9 @@ const Artwork = () => {
         </div>
 
         {/* Right Column: Spec metadata */}
-        <div className="lg:col-span-5 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-black/5 pt-12 lg:pt-0 lg:pl-16">
+        <div className="lg:col-span-5 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-black/5 dark:border-white/5 pt-12 lg:pt-0 lg:pl-16">
           {artwork.status === 'Sold' && (
-            <div className="inline-block bg-neutral-900 text-white font-sans text-[9px] tracking-[0.25em] uppercase py-1.5 px-4 mb-5 select-none">
+            <div className="inline-block bg-neutral-900 dark:bg-white text-white dark:text-gallery-dark font-sans text-[9px] tracking-[0.25em] uppercase py-1.5 px-4 mb-5 select-none">
               SOLD
             </div>
           )}
@@ -101,7 +101,7 @@ const Artwork = () => {
           )}
 
           {/* Details list card */}
-          <div className="border-y border-black/5 py-6 my-6 flex flex-col gap-4 font-sans text-[11px] tracking-wider uppercase">
+          <div className="border-y border-black/5 dark:border-white/5 py-6 my-6 flex flex-col gap-4 font-sans text-[11px] tracking-wider uppercase">
             {artwork.year && (
               <div className="flex justify-between items-center">
                 <span className="opacity-50">Year Created</span>
@@ -118,7 +118,7 @@ const Artwork = () => {
               <div className="flex justify-between items-center">
                 <span className="opacity-50">Availability Status</span>
                 <span className={`font-semibold ${
-                  artwork.status === 'Available' || artwork.status === 'For Sale' ? 'text-black' : 'text-neutral-400'
+                  artwork.status === 'Available' || artwork.status === 'For Sale' ? 'text-black dark:text-warm-white font-semibold' : 'text-neutral-400 dark:text-neutral-500'
                 }`}>{artwork.status}</span>
               </div>
             )}
@@ -131,7 +131,7 @@ const Artwork = () => {
                 href={`https://wa.me/${artistConfig.contact.whatsapp.replace(/[^0-9]/g, "")}?text=Hi%20Lily,%20I'm%20interested%20in%20acquiring%20your%20artwork%20"${encodeURIComponent(artwork.title || 'Untitled Project')}"%20(${artwork.id})`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center bg-gallery-dark hover:bg-neutral-900 text-white font-sans text-[10px] tracking-[0.3em] uppercase py-3.5 px-8 transition-all font-semibold flex items-center justify-center gap-2.5 cursor-pointer shadow-sm hover:shadow"
+                className="w-full text-center bg-gallery-dark dark:bg-warm-white hover:bg-neutral-900 dark:hover:bg-neutral-100 text-white dark:text-gallery-dark font-sans text-[10px] tracking-[0.3em] uppercase py-3.5 px-8 transition-all font-semibold flex items-center justify-center gap-2.5 cursor-pointer shadow-sm hover:shadow"
               >
                 INQUIRE ABOUT ACQUISITION <MessageCircle size={14} />
               </a>
@@ -143,17 +143,17 @@ const Artwork = () => {
 
       {/* Previous / Next exhibit navigation */}
       {categoryArtworks.length > 1 && (
-        <section className="max-w-7xl mx-auto border-t border-black/5 py-10 flex justify-between items-center font-sans text-[10px] tracking-widest uppercase font-semibold text-neutral-400">
+        <section className="max-w-7xl mx-auto border-t border-black/5 dark:border-white/5 py-10 flex justify-between items-center font-sans text-[10px] tracking-widest uppercase font-semibold text-neutral-400 dark:text-neutral-500">
           <Link 
             to={`/artwork/${prevArtwork.id}`}
-            className="hover:text-gallery-dark transition-colors inline-flex items-center gap-1.5"
+            className="hover:text-gallery-dark dark:hover:text-warm-white transition-colors inline-flex items-center gap-1.5"
           >
             &larr; PREVIOUS EXHIBIT
           </Link>
           <span className="hidden sm:inline opacity-30">|</span>
           <Link 
             to={`/artwork/${nextArtwork.id}`}
-            className="hover:text-gallery-dark transition-colors inline-flex items-center gap-1.5"
+            className="hover:text-gallery-dark dark:hover:text-warm-white transition-colors inline-flex items-center gap-1.5"
           >
             NEXT EXHIBIT &rarr;
           </Link>
@@ -162,8 +162,8 @@ const Artwork = () => {
 
       {/* Related Artworks Panel */}
       {relatedArtworks.length > 0 && (
-        <section className="max-w-7xl mx-auto border-t border-black/5 pt-16">
-          <h3 className="font-serif text-xl uppercase tracking-wider text-neutral-800 mb-8">
+        <section className="max-w-7xl mx-auto border-t border-black/5 dark:border-white/5 pt-16">
+          <h3 className="font-serif text-xl uppercase tracking-wider text-neutral-800 dark:text-warm-white mb-8">
             Related Expositions
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -171,17 +171,17 @@ const Artwork = () => {
               const relatedImg = getArtworkImage(art.localPath, art.placeholderUrl);
               return (
                 <div key={art.id} className="flex flex-col group text-left">
-                  <Link to={`/artwork/${art.id}`} className="block relative overflow-hidden aspect-[4/5] bg-soft-white border border-black/5 p-3 mb-4">
+                  <Link to={`/artwork/${art.id}`} className="block relative overflow-hidden aspect-[4/5] bg-soft-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 p-3 mb-4 transition-colors duration-500">
                     <img
                       src={relatedImg}
                       alt={art.title}
                       className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01]"
                     />
                   </Link>
-                  <h4 className="font-serif text-sm font-light uppercase tracking-wide">
+                  <h4 className="font-serif text-sm font-light uppercase tracking-wide text-gallery-dark dark:text-warm-white">
                     {art.title}
                   </h4>
-                  <span className="text-[9px] font-sans opacity-55 uppercase tracking-widest">
+                  <span className="text-[9px] font-sans opacity-55 uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
                     {art.medium}
                   </span>
                 </div>

@@ -59,7 +59,7 @@ Message: ${formState.message}`;
   };
 
   return (
-    <div className="w-full min-h-screen bg-warm-white text-gallery-dark pt-32 pb-24 px-6 md:px-12">
+    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>Contact & Inquiries | Lily May Stinson</title>
         <meta name="description" content="Get in touch with visual artist Lily May Stinson for commissions, gallery curations, or print acquisitions." />
@@ -73,7 +73,10 @@ Message: ${formState.message}`;
           <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 mb-3 block">
             GET IN TOUCH
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-light tracking-wide uppercase leading-tight mb-8">
+          <h1 
+            className="font-serif font-light tracking-wide uppercase leading-[1.15] mb-8"
+            style={{ fontSize: "clamp(1.8rem, 6vw, 3.8rem)" }}
+          >
             Let's Collaborate
           </h1>
           <p className="font-sans text-xs md:text-sm leading-relaxed opacity-60 tracking-wider mb-12">
@@ -84,12 +87,12 @@ Message: ${formState.message}`;
             {/* Email */}
             {artistConfig.contact.email && (
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-white border border-black/5 rounded-full">
+                <div className="p-3 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 rounded-full transition-colors duration-500">
                   <Mail size={16} strokeWidth={1.5} />
                 </div>
                 <div>
                   <span className="block text-[8px] tracking-[0.25em] opacity-45 uppercase font-semibold">EMAIL</span>
-                  <a href={`mailto:${artistConfig.contact.email}`} className="text-neutral-900 font-medium hover:opacity-75 transition-opacity">
+                  <a href={`mailto:${artistConfig.contact.email}`} className="text-neutral-900 dark:text-warm-white font-medium hover:opacity-75 transition-opacity">
                     {artistConfig.contact.email}
                   </a>
                 </div>
@@ -98,12 +101,12 @@ Message: ${formState.message}`;
 
             {/* Instagram */}
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-white border border-black/5 rounded-full">
+              <div className="p-3 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 rounded-full transition-colors duration-500">
                 <InstagramIcon size={16} />
               </div>
               <div>
                 <span className="block text-[8px] tracking-[0.25em] opacity-45 uppercase font-semibold">INSTAGRAM</span>
-                <a href={artistConfig.contact.instagramLink} target="_blank" rel="noopener noreferrer" className="text-neutral-900 font-medium hover:opacity-75 transition-opacity">
+                <a href={artistConfig.contact.instagramLink} target="_blank" rel="noopener noreferrer" className="text-neutral-900 dark:text-warm-white font-medium hover:opacity-75 transition-opacity">
                   {artistConfig.contact.instagram}
                 </a>
               </div>
@@ -111,12 +114,12 @@ Message: ${formState.message}`;
 
             {/* Whatsapp */}
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-white border border-black/5 rounded-full">
+              <div className="p-3 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 rounded-full transition-colors duration-500">
                 <MessageSquare size={16} strokeWidth={1.5} />
               </div>
               <div>
                 <span className="block text-[8px] tracking-[0.25em] opacity-45 uppercase font-semibold">WHATSAPP</span>
-                <a href={`https://wa.me/${artistConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-neutral-900 font-medium hover:opacity-75 transition-opacity">
+                <a href={`https://wa.me/${artistConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-neutral-900 dark:text-warm-white font-medium hover:opacity-75 transition-opacity">
                   {artistConfig.contact.phone}
                 </a>
               </div>
@@ -125,10 +128,10 @@ Message: ${formState.message}`;
         </div>
 
         {/* Right Column: Line-styled Form Panel */}
-        <div className="w-full lg:w-7/12 bg-white border border-black/5 p-8 md:p-12 shadow-premium relative text-left">
+        <div className="w-full lg:w-7/12 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 p-6 sm:p-8 md:p-12 shadow-premium relative text-left transition-all duration-500">
           {/* Decorative frame corners */}
-          <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/10" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/10" />
+          <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/10 dark:border-white/10" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/10 dark:border-white/10" />
 
           {submitted ? (
             <motion.div 
@@ -155,7 +158,7 @@ Message: ${formState.message}`;
                   onChange={handleInputChange}
                   required
                   placeholder=""
-                  className="py-2.5 bg-transparent border-b border-black/15 focus:border-neutral-900 outline-none transition-colors text-neutral-900 font-medium placeholder-neutral-300"
+                  className="py-2.5 bg-transparent border-b border-black/15 dark:border-white/15 focus:border-neutral-900 dark:focus:border-warm-white outline-none transition-colors text-neutral-900 dark:text-warm-white font-medium placeholder-neutral-300 dark:placeholder-neutral-700"
                 />
               </div>
 
@@ -169,7 +172,7 @@ Message: ${formState.message}`;
                   onChange={handleInputChange}
                   required
                   placeholder=""
-                  className="py-2.5 bg-transparent border-b border-black/15 focus:border-neutral-900 outline-none transition-colors text-neutral-900 font-medium placeholder-neutral-300"
+                  className="py-2.5 bg-transparent border-b border-black/15 dark:border-white/15 focus:border-neutral-900 dark:focus:border-warm-white outline-none transition-colors text-neutral-900 dark:text-warm-white font-medium placeholder-neutral-300 dark:placeholder-neutral-700"
                 />
               </div>
 
@@ -183,7 +186,7 @@ Message: ${formState.message}`;
                   onChange={handleInputChange}
                   required
                   placeholder=""
-                  className="py-2.5 bg-transparent border-b border-black/15 focus:border-neutral-900 outline-none transition-colors text-neutral-900 font-medium placeholder-neutral-300"
+                  className="py-2.5 bg-transparent border-b border-black/15 dark:border-white/15 focus:border-neutral-900 dark:focus:border-warm-white outline-none transition-colors text-neutral-900 dark:text-warm-white font-medium placeholder-neutral-300 dark:placeholder-neutral-700"
                 />
               </div>
 
@@ -197,7 +200,7 @@ Message: ${formState.message}`;
                   onChange={handleInputChange}
                   required
                   placeholder=""
-                  className="py-2.5 bg-transparent border-b border-black/15 focus:border-neutral-900 outline-none transition-colors text-neutral-900 font-medium resize-none placeholder-neutral-300"
+                  className="py-2.5 bg-transparent border-b border-black/15 dark:border-white/15 focus:border-neutral-900 dark:focus:border-warm-white outline-none transition-colors text-neutral-900 dark:text-warm-white font-medium resize-none placeholder-neutral-300 dark:placeholder-neutral-700"
                 />
               </div>
 
@@ -206,7 +209,7 @@ Message: ${formState.message}`;
                 <Magnetic range={50} strength={0.2}>
                   <button
                     type="submit"
-                    className="bg-gallery-dark hover:bg-neutral-900 text-white font-sans text-[10px] tracking-[0.3em] uppercase py-3.5 px-10 transition-all font-semibold flex items-center gap-2 cursor-pointer"
+                    className="bg-gallery-dark dark:bg-warm-white hover:bg-neutral-900 dark:hover:bg-neutral-100 text-white dark:text-gallery-dark font-sans text-[10px] tracking-[0.3em] uppercase py-3.5 px-10 transition-all font-semibold flex items-center gap-2 cursor-pointer"
                   >
                     SEND INQUIRY <Send size={10} />
                   </button>

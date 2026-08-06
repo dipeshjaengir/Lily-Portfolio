@@ -15,10 +15,10 @@ const Navbar = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { inverted, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const isHome = location.pathname === '/';
-  const isDarkPage = isHome ? !inverted : inverted;
+  const isDarkPage = theme === 'dark';
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Brand Identity */}
         <Link
           to="/"
-          className="text-lg md:text-xl font-light tracking-[0.25em] font-serif uppercase cursor-pointer transition-opacity duration-300 hover:opacity-75"
+          className="text-sm xs:text-base sm:text-lg md:text-xl font-light tracking-[0.12em] sm:tracking-[0.25em] font-serif uppercase cursor-pointer transition-all duration-300 hover:opacity-75 truncate max-w-[45vw] sm:max-w-none"
           style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
         >
           Lily May Stinson
@@ -111,10 +111,10 @@ const Navbar = () => {
               borderColor: isDarkPage ? 'rgba(250, 249, 246, 0.15)' : 'rgba(12, 12, 12, 0.15)',
               color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)'
             }}
-            title={inverted ? "Switch to Dark Gallery" : "Switch to Light Gallery"}
+            title={theme === 'light' ? "Switch to Dark Gallery" : "Switch to Light Gallery"}
             aria-label="Toggle theme"
           >
-            {inverted ? <Sun size={13} /> : <Moon size={13} />}
+            {theme === 'light' ? <Moon size={13} /> : <Sun size={13} />}
           </button>
 
           {/* Mobile Hamburger toggle */}
@@ -143,7 +143,7 @@ const Navbar = () => {
           >
             {/* Drawer Header */}
             <div className="w-full flex justify-between items-center px-6 py-6 md:px-12">
-              <span className="text-lg font-serif tracking-[0.25em] uppercase font-light">
+              <span className="text-sm xs:text-base sm:text-lg font-serif tracking-[0.15em] sm:tracking-[0.25em] uppercase font-light truncate max-w-[60vw]">
                 Lily May Stinson
               </span>
               <button

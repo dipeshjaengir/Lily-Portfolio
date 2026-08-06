@@ -14,7 +14,7 @@ const About = () => {
   const profileImg = getProfileImage(artistConfig.about.profileImage);
 
   return (
-    <div className="w-full min-h-screen bg-warm-white text-gallery-dark pt-32 pb-24 px-6 md:px-12">
+    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>About Lily May Stinson | Artist Philosophy & Story</title>
         <meta name="description" content="Discover the artistic identity and biography of Lily May Stinson, exploring her specialized printmaking and sensory inspiration." />
@@ -28,7 +28,10 @@ const About = () => {
           <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 mb-3 block">
             THE ARTIST BEHIND THE EXCHANGES
           </span>
-          <h1 className="font-serif text-4xl md:text-7xl font-light tracking-wide uppercase leading-tight">
+          <h1 
+            className="font-serif font-light tracking-wide uppercase leading-[1.15]"
+            style={{ fontSize: "clamp(1.8rem, 7vw, 4.5rem)" }}
+          >
             Biography & Philosophy
           </h1>
         </header>
@@ -43,11 +46,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[420px] aspect-[4/5] bg-white p-5 border border-black/5 shadow-premium"
+              className="relative w-full max-w-[420px] aspect-[4/5] bg-white dark:bg-neutral-900 p-5 border border-black/5 dark:border-white/5 shadow-premium transition-colors duration-500"
             >
               {/* Inner frame margins */}
-              <div className="absolute inset-3 border border-black/5 pointer-events-none" />
-              <div className="absolute inset-4.5 border border-black/[0.02] pointer-events-none" />
+              <div className="absolute inset-3 border border-black/5 dark:border-white/5 pointer-events-none transition-colors duration-500" />
+              <div className="absolute inset-4.5 border border-black/[0.02] dark:border-white/[0.02] pointer-events-none transition-colors duration-500" />
               
               <div className="w-full h-full overflow-hidden relative">
                 <img
@@ -68,7 +71,7 @@ const About = () => {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wider mb-6 text-neutral-800"
+                  className="font-serif text-2xl md:text-3xl font-light uppercase tracking-wider mb-6 text-neutral-800 dark:text-warm-white"
                 >
                   {artistConfig.about.title}
                 </motion.h2>
@@ -91,9 +94,9 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="border-y border-black/5 py-8 my-6 relative pl-8 font-serif text-lg md:text-2xl font-light italic tracking-wide opacity-80"
+                className="border-y border-black/5 dark:border-white/5 py-8 my-6 relative pl-8 font-serif text-lg md:text-2xl font-light italic tracking-wide opacity-80"
               >
-                <div className="absolute left-0 top-6 text-4xl text-black/20 select-none">“</div>
+                <div className="absolute left-0 top-6 text-4xl text-black/20 dark:text-white/20 select-none">“</div>
                 "{artistConfig.philosophy.quote}"
                 <span className="block font-sans text-[10px] tracking-[0.25em] uppercase font-semibold text-neutral-500 mt-3 not-italic">
                   &mdash; {artistConfig.philosophy.author}
@@ -105,12 +108,12 @@ const About = () => {
         </section>
 
         {/* Narrative Story (Mother's resilience & Gratitude) */}
-        <section className="bg-neutral-50 border-y border-black/[0.03] py-24 md:py-32 px-6 md:px-12 mb-24 md:mb-36 text-left">
+        <section className="bg-neutral-50 dark:bg-gallery-black/40 border-y border-black/[0.03] dark:border-white/[0.03] py-24 md:py-32 px-6 md:px-12 mb-24 md:mb-36 text-left transition-colors duration-500">
           <div className="max-w-4xl mx-auto">
             <span className="text-[9px] font-sans tracking-[0.3em] text-neutral-400 uppercase font-semibold block mb-4">
               ARTISTIC RESILIENCE
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-light uppercase tracking-widest text-neutral-800 mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-light uppercase tracking-widest text-neutral-800 dark:text-warm-white mb-10">
               {artistConfig.about.story.title}
             </h2>
 
@@ -137,20 +140,20 @@ const About = () => {
             {/* Left Column: Academic Exhibits Timeline */}
             {artistConfig.timeline?.length > 0 && (
               <div className="lg:col-span-7 text-left">
-                <h2 className="font-serif text-2xl uppercase tracking-wider mb-10 text-neutral-800">
+                <h2 className="font-serif text-2xl uppercase tracking-wider mb-10 text-neutral-800 dark:text-warm-white">
                   Exhibitions & Timeline
                 </h2>
 
-                <div className="flex flex-col gap-8 relative border-l border-black/5 pl-6 ml-2 font-sans text-xs">
+                <div className="flex flex-col gap-8 relative border-l border-black/5 dark:border-white/5 pl-6 ml-2 font-sans text-xs">
                   {artistConfig.timeline.map((event, idx) => (
                     <div key={idx} className="relative py-1">
                       {/* Timeline dot */}
-                      <div className="absolute left-[-29px] top-2.5 w-2 h-2 rounded-full bg-gallery-dark border border-warm-white" />
+                      <div className="absolute left-[-29px] top-2.5 w-2 h-2 rounded-full bg-gallery-dark dark:bg-warm-white border border-warm-white dark:border-gallery-dark" />
                       
                       <span className="text-[10px] font-semibold tracking-wider text-neutral-500 block mb-1">
                         {event.year}
                       </span>
-                      <h4 className="font-serif text-base uppercase font-light text-neutral-900 mb-1.5">
+                      <h4 className="font-serif text-base uppercase font-light text-neutral-900 dark:text-warm-white mb-1.5">
                         {event.title}
                       </h4>
                       <p className="opacity-60 leading-relaxed tracking-wider">
@@ -168,13 +171,13 @@ const About = () => {
                 {artistConfig.statistics.map((stat, idx) => (
                   <div 
                     key={idx} 
-                    className="bg-white border border-black/5 p-6 md:p-8 flex flex-col justify-center text-left shadow-sm relative group hover:shadow-md transition-shadow duration-300"
+                    className="bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 p-6 md:p-8 flex flex-col justify-center text-left shadow-sm relative group hover:shadow-md transition-all duration-300"
                   >
                     {/* Decorative corners */}
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/10" />
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/10" />
+                    <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/10 dark:border-white/10" />
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/10 dark:border-white/10" />
 
-                    <span className="font-serif text-3xl md:text-4xl font-light tracking-wide text-neutral-800 mb-2">
+                    <span className="font-serif text-3xl md:text-4xl font-light tracking-wide text-neutral-800 dark:text-warm-white mb-2">
                       {stat.value}
                     </span>
                     <span className="font-sans text-[9px] tracking-[0.2em] opacity-50 uppercase font-semibold">

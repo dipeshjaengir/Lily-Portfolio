@@ -1,20 +1,20 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { artistConfig } from '../data/config';
 import Magnetic from './Magnetic';
+import { useTheme } from '../utils/ThemeContext';
 
 /**
  * Editorial Footer component.
  * Displays simple branding, visual artist credentials, and magnetic contact CTAs.
  */
 const Footer = () => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const { theme } = useTheme();
+  const isDarkPage = theme === 'dark';
 
   return (
     <footer 
-      className={`relative z-10 w-full mt-24 px-6 md:px-12 py-12 md:py-16 border-t ${
-        isHome 
+      className={`relative z-10 w-full mt-24 px-6 md:px-12 py-12 md:py-16 border-t transition-colors duration-500 ${
+        isDarkPage 
           ? 'border-white/5 bg-gallery-dark/40' 
           : 'border-black/5 bg-neutral-50'
       }`}

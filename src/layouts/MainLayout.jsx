@@ -38,8 +38,8 @@ const MainLayout = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const isHome = location.pathname === '/';
-  const { inverted } = useTheme();
-  const isDarkPage = isHome ? !inverted : inverted;
+  const { theme } = useTheme();
+  const isDarkPage = theme === 'dark';
 
   // Monitor scroll for progress and top trigger
   useEffect(() => {
@@ -67,7 +67,7 @@ const MainLayout = () => {
 
   return (
     <div 
-      className={`relative min-h-screen flex flex-col justify-between transition-colors duration-700 ${
+      className={`relative min-h-screen flex flex-col justify-between overflow-x-hidden transition-colors duration-700 ${
         isDarkPage 
           ? 'bg-gallery-dark text-warm-white dark-theme-scroll theme-dark' 
           : 'bg-warm-white text-gallery-dark theme-light'
@@ -98,7 +98,7 @@ const MainLayout = () => {
       <Footer />
 
       {/* Floating Quick Action Group */}
-      <div className="fixed bottom-8 right-8 z-[90] flex flex-col gap-3 items-center">
+      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[90] flex flex-col gap-2.5 sm:gap-3 items-center">
         {artistConfig.contact.email && (
           <a
             href={`mailto:${artistConfig.contact.email}`}

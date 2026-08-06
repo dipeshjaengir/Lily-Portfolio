@@ -262,10 +262,24 @@ body.theme-inverted {
   color: var(--color-gallery-dark) !important;
 }
 
-.theme-light .bg-gallery-black,
-.theme-light .bg-gallery-dark {
+.theme-light .bg-gallery-black {
   background-color: var(--color-warm-white) !important;
   color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .bg-gallery-dark {
+  background-color: var(--color-soft-white) !important;
+  color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .bg-neutral-900 {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .bg-neutral-900 .bg-gallery-dark {
+  background-color: var(--color-warm-white) !important;
 }
 
 .theme-light .text-warm-white,
@@ -274,7 +288,7 @@ body.theme-inverted {
 }
 
 .theme-light .border-white\/5 {
-  border-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
 }
 
 .theme-light .border-white\/10 {
@@ -304,4 +318,53 @@ body.theme-inverted {
 .theme-light .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--color-warm-white) 0%, rgba(250, 249, 246, 0.6) 50%, transparent 100%) !important;
 }
+
+/* Custom theme-light overrides */
+.theme-light .text-accent-yellow-border {
+  color: #8C7B50 !important; /* Premium gold contrast on light */
+}
+
+.theme-light .border-accent-yellow-border {
+  border-color: #8C7B50 !important;
+}
+
+.theme-light .bg-accent-yellow-border {
+  background-color: #8C7B50 !important;
+  color: var(--color-warm-white) !important;
+}
+
+.theme-light .bg-accent-yellow-border:hover {
+  background-color: transparent !important;
+  color: #8C7B50 !important;
+}
+
+.theme-light .hover\:text-accent-yellow-border:hover,
+.theme-light .group-hover\:text-accent-yellow-border,
+.theme-light .group-hover\:text-accent-yellow-border\/20 {
+  color: #8C7B50 !important;
+}
+
+.theme-light .group-hover\:border-accent-yellow-border\/20:hover {
+  border-color: rgba(140, 123, 80, 0.3) !important;
+}
+
+.theme-light .border-white\/10 {
+  border-color: rgba(12, 12, 12, 0.1) !important;
+}
+
+.theme-light .border-white\/5 {
+  border-color: rgba(12, 12, 12, 0.05) !important;
+}
+
+/* Theme-dark notebook pattern overrides */
+.theme-dark .notebook-grid::before {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px) !important;
+}
+
+.theme-dark .notebook-lined::before {
+  background-image: linear-gradient(to bottom, transparent 27px, rgba(255, 255, 255, 0.07) 1px) !important;
+}
+
 

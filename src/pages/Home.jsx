@@ -45,7 +45,7 @@ const Home = () => {
       </Helmet>
 
       {/* Cinematic Fullscreen Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center bg-gallery-black overflow-hidden">
+      <section className="relative h-screen w-full flex items-center justify-center bg-warm-white dark:bg-gallery-black overflow-hidden transition-colors duration-500">
         {/* Full-bleed Background Artwork with Dark Overlay */}
         <motion.div 
           style={{ scale: heroBgScale }}
@@ -64,8 +64,8 @@ const Home = () => {
             />
           </motion.div>
           {/* Heavy Editorial Vignette Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gallery-dark via-gallery-dark/60 to-transparent" />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-warm-white/60 to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-white/10 dark:bg-black/40 transition-colors duration-500" />
         </motion.div>
 
         {/* Hero Text Content */}
@@ -82,7 +82,10 @@ const Home = () => {
             {artistConfig.subtitle}
           </motion.span>
           
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl font-light tracking-widest uppercase leading-none text-warm-white max-w-4xl select-none">
+          <h1 
+            className="font-serif font-light tracking-widest uppercase leading-[1.1] text-warm-white max-w-4xl select-none"
+            style={{ fontSize: "clamp(1.75rem, 7.5vw, 5.5rem)" }}
+          >
             {artistConfig.name.split(" ").map((name, i) => (
               <motion.span 
                 key={i} 
@@ -127,7 +130,7 @@ const Home = () => {
           animate={{ opacity: 0.5 }}
           transition={{ delay: 1.2 }}
           onClick={scrollToFeatured}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-20 text-white hover:opacity-100 transition-opacity"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-20 text-gallery-dark dark:text-white hover:opacity-100 transition-all duration-500"
         >
           <span className="font-sans text-[8px] tracking-[0.3em] uppercase">SCROLL</span>
           <ArrowDown size={12} className="animate-bounce" />
@@ -137,14 +140,17 @@ const Home = () => {
       {/* Horizontal Scrolling Featured Exhibition Room */}
       <section 
         id="featured-exhibition" 
-        className="py-24 md:py-36 bg-gallery-dark border-t border-white/5"
+        className="py-24 md:py-36 bg-soft-white dark:bg-gallery-dark border-t border-black/5 dark:border-white/5 transition-colors duration-500"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 text-left">
           <div>
             <span className="text-accent-yellow-border font-sans text-[10px] tracking-[0.35em] uppercase font-semibold block mb-2">
               CURATED SELECTION
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-light tracking-wide text-warm-white uppercase">
+            <h2 
+              className="font-serif font-light tracking-wide text-gallery-dark dark:text-warm-white uppercase leading-[1.2] transition-colors duration-500"
+              style={{ fontSize: "clamp(1.6rem, 5vw, 3rem)" }}
+            >
               Featured Creations
             </h2>
           </div>
@@ -170,13 +176,13 @@ const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="min-w-[280px] sm:min-w-[340px] md:min-w-[420px] aspect-[3/4] bg-neutral-900 border border-white/5 p-4 flex flex-col justify-between group snap-start relative overflow-hidden"
+                className="min-w-[280px] sm:min-w-[340px] md:min-w-[420px] aspect-[3/4] bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/5 p-4 flex flex-col justify-between group snap-start relative overflow-hidden transition-all duration-500"
               >
                 {/* Visual frame inner outline */}
-                <div className="absolute inset-2 border border-white/5 pointer-events-none group-hover:border-accent-yellow-border/20 transition-colors duration-500" />
+                <div className="absolute inset-2 border border-black/5 dark:border-white/5 pointer-events-none group-hover:border-accent-yellow-border/20 transition-colors duration-500" />
                 
                 {/* Image panel with hover perspective scale */}
-                <div className="relative overflow-hidden w-full aspect-[4/5] bg-gallery-dark mb-4">
+                <div className="relative overflow-hidden w-full aspect-[4/5] bg-soft-white dark:bg-gallery-dark mb-4 transition-colors duration-500">
                   <Image
                     src={resolvedImg}
                     alt={art.title}
@@ -184,11 +190,11 @@ const Home = () => {
                     height="h-full"
                     className="w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-black/5 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
                 {/* Metadata */}
-                <div className="flex justify-between items-start text-left text-white px-1">
+                <div className="flex justify-between items-start text-left text-gallery-dark dark:text-white px-1 transition-colors duration-500">
                   <div>
                     <h3 className="font-serif text-base font-light tracking-wide group-hover:text-accent-yellow-border transition-colors">
                       {art.title}
@@ -199,7 +205,7 @@ const Home = () => {
                   </div>
                   <Link
                     to={`/artwork/${art.id}`}
-                    className="p-1 rounded-full border border-white/10 hover:border-white/40 hover:text-accent-yellow-border text-white transition-all cursor-pointer"
+                    className="p-1 rounded-full border border-black/10 dark:border-white/10 hover:border-black/40 dark:hover:border-white/40 hover:text-accent-yellow-border text-gallery-dark dark:text-white transition-all cursor-pointer"
                   >
                     <ArrowUpRight size={14} />
                   </Link>
@@ -211,18 +217,18 @@ const Home = () => {
       </section>
 
       {/* Gateway Exhibition Rooms Selector */}
-      <section className="py-24 md:py-36 bg-gallery-black border-t border-white/5">
+      <section className="py-24 md:py-36 bg-warm-white dark:bg-gallery-black border-t border-black/5 dark:border-white/5 transition-colors duration-500">
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center">
           <span className="text-accent-yellow-border font-sans text-[10px] tracking-[0.35em] uppercase font-semibold block mb-8">
             EXHIBITION ROOMS
           </span>
 
-          <div className="flex flex-col gap-4 md:gap-6 font-serif text-xl sm:text-3xl md:text-4xl font-light uppercase tracking-widest">
+          <div className="flex flex-col gap-4 md:gap-6 font-serif text-xl sm:text-3xl md:text-4xl font-light uppercase tracking-widest text-gallery-dark dark:text-white transition-colors duration-500">
             
             <motion.div 
               whileHover={{ x: 15 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="border-b border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer"
+              className="border-b border-black/10 dark:border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer transition-colors duration-500"
             >
               <Link to="/paintings" className="hover:text-accent-yellow-border transition-colors">
                 PAINTINGS ROOM
@@ -233,7 +239,7 @@ const Home = () => {
             <motion.div 
               whileHover={{ x: 15 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="border-b border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer"
+              className="border-b border-black/10 dark:border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer transition-colors duration-500"
             >
               <Link to="/photography" className="hover:text-accent-yellow-border transition-colors">
                 PHOTOGRAPHY JOURNAL
@@ -244,7 +250,7 @@ const Home = () => {
             <motion.div 
               whileHover={{ x: 15 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="border-b border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer"
+              className="border-b border-black/10 dark:border-white/10 pb-4 md:pb-5 flex justify-between items-center group cursor-pointer transition-colors duration-500"
             >
               <Link to="/pen-art" className="hover:text-accent-yellow-border transition-colors">
                 PEN ART NOTEBOOK
@@ -255,7 +261,7 @@ const Home = () => {
             <motion.div 
               whileHover={{ x: 15 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="pb-4 flex justify-between items-center group cursor-pointer"
+              className="pb-4 flex justify-between items-center group cursor-pointer transition-colors duration-500"
             >
               <Link to="/about" className="hover:text-accent-yellow-border transition-colors">
                 ABOUT & STORY

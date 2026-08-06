@@ -3,27 +3,33 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [inverted, setInverted] = useState(() => {
-    const saved = localStorage.getItem('theme-inverted');
-    return saved ? JSON.parse(saved) : false;
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme-mode');
+    return saved ? saved : 'dark'; // Default to dark gallery as requested
   });
 
   useEffect(() => {
-    localStorage.setItem('theme-inverted', JSON.stringify(inverted));
-    // Apply theme class to document body to support global styles
-    if (inverted) {
-      document.body.classList.add('theme-inverted');
+    localStorage.setItem('theme-mode', theme);
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+      document.body.classList.add('theme-dark');
+      document.body.classList.remove('theme-light');
     } else {
-      document.body.classList.remove('theme-inverted');
+      root.classList.add('light');
+      root.classList.remove('dark');
+      document.body.classList.add('theme-light');
+      document.body.classList.remove('theme-dark');
     }
-  }, [inverted]);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setInverted(prev => !prev);
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (
-    <ThemeContext.Provider value={{ inverted, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -20,7 +20,7 @@ const PenArt = () => {
   const penArtworks = artworks.filter(art => art.category === 'pen-art');
 
   return (
-    <div className="w-full min-h-screen bg-warm-white text-gallery-dark pt-32 pb-24 px-6 md:px-12 relative notebook-grid">
+    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 relative notebook-grid transition-colors duration-500">
       <Helmet>
         <title>Pen Art & Printmaking | Lily May Stinson</title>
         <meta name="description" content="Explore Lily May Stinson's monochrome printmaking, woodcuts, copperplate drypoint engravings, and charcoal shading drawings." />
@@ -34,10 +34,13 @@ const PenArt = () => {
         
         {/* Page Header */}
         <header className="mb-20 md:mb-28">
-          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 mb-3 block">
+          <span className="text-[10px] font-sans tracking-[0.35em] uppercase font-semibold text-gallery-dark/40 dark:text-warm-white/40 mb-3 block">
             EXHIBITION ROOM 03
           </span>
-          <h1 className="font-serif text-4xl md:text-7xl font-light tracking-wide uppercase leading-tight select-none">
+          <h1 
+            className="font-serif font-light tracking-wide uppercase leading-[1.15] select-none"
+            style={{ fontSize: "clamp(1.8rem, 7vw, 4.5rem)" }}
+          >
             Pen Art & Prints
           </h1>
         </header>
@@ -54,18 +57,18 @@ const PenArt = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: index * 0.05 }}
-                className="break-inside-avoid bg-white/80 border border-black/5 p-4 md:p-6 shadow-sm hover:shadow-premium transition-all duration-500 relative group flex flex-col justify-between"
+                className="break-inside-avoid bg-white/80 dark:bg-neutral-900/80 border border-black/5 dark:border-white/5 p-4 md:p-6 shadow-sm hover:shadow-premium transition-all duration-500 relative group flex flex-col justify-between"
               >
                 {/* Visual frame inner grid details */}
-                <div className="absolute top-2 left-2 right-2 bottom-2 border border-dashed border-black/5 pointer-events-none" />
+                <div className="absolute top-2 left-2 right-2 bottom-2 border border-dashed border-black/5 dark:border-white/5 pointer-events-none transition-colors duration-500" />
 
                 {/* Image - Natural aspect ratio container */}
                 <div 
                   onClick={() => setActiveArtwork(art)}
-                  className="relative overflow-hidden bg-neutral-50/50 mb-4 border border-black/5 cursor-zoom-in flex items-center justify-center p-1"
+                  className="relative overflow-hidden bg-neutral-50/50 dark:bg-gallery-dark mb-4 border border-black/5 dark:border-white/5 cursor-zoom-in flex items-center justify-center p-1 transition-colors duration-500"
                 >
                   {art.status === 'Sold' && (
-                    <div className="absolute top-4 left-4 z-10 bg-neutral-900/95 text-[8px] font-sans tracking-[0.25em] text-white uppercase py-1 px-2.5 backdrop-blur-xs select-none">
+                    <div className="absolute top-4 left-4 z-10 bg-neutral-900/95 dark:bg-white/95 text-[8px] font-sans tracking-[0.25em] text-white dark:text-gallery-dark uppercase py-1 px-2.5 backdrop-blur-xs select-none">
                       SOLD
                     </div>
                   )}
@@ -78,7 +81,7 @@ const PenArt = () => {
                   />
                   
                   {/* Floating Action Trigger on hover */}
-                  <div className="absolute top-4 right-4 p-2 rounded-full bg-white/95 text-gallery-dark shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute top-4 right-4 p-2 rounded-full bg-white/95 dark:bg-gallery-dark/95 text-gallery-dark dark:text-warm-white shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border dark:border-white/10">
                     <Maximize2 size={11} />
                   </div>
                 </div>
@@ -99,15 +102,15 @@ const PenArt = () => {
                       </p>
                     )}
 
-                    <div className="pt-3 border-t border-black/5 flex justify-between items-center text-[9px] tracking-widest uppercase">
+                    <div className="pt-3 border-t border-black/5 dark:border-white/5 flex justify-between items-center text-[9px] tracking-widest uppercase">
                       {art.status && (
-                        <span className={art.status === 'Available' ? 'text-black font-semibold' : 'text-neutral-400'}>
+                        <span className={art.status === 'Available' ? 'text-black dark:text-warm-white font-semibold' : 'text-neutral-400 dark:text-neutral-500'}>
                           {art.status}
                         </span>
                       )}
                       <Link
                         to={`/artwork/${art.id}`}
-                        className="hover:text-neutral-500 transition-colors inline-flex items-center gap-1.5 ml-auto"
+                        className="hover:text-neutral-500 dark:hover:text-warm-white transition-colors inline-flex items-center gap-1.5 ml-auto"
                       >
                         SPEC SHEET <ArrowUpRight size={10} />
                       </Link>

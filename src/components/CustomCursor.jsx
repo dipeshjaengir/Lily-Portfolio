@@ -13,8 +13,8 @@ const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   
-  const { inverted } = useTheme();
-  const isDarkPage = (location.pathname === '/') ? !inverted : inverted;
+  const { theme } = useTheme();
+  const isDarkPage = theme === 'dark';
 
   useEffect(() => {
     // Hide native cursor only if screen supports hover
