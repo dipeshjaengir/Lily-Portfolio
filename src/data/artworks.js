@@ -27,6 +27,45 @@ export const artworks = [
     featured: true
   },
   {
+    id: "paintings-05",
+    title: "PORTAL TO PLAY",
+    category: "paintings",
+    medium: "Acrylic",
+    dimensions: "48\" × 36\"",
+    year: null,
+    status: "For Sale",
+    description: null,
+    placeholderUrl: null,
+    localPath: "/src/assets/artworks/paintings/portal_to_play.jpg",
+    featured: true
+  },
+  {
+    id: "paintings-find-your-wings",
+    title: "FIND YOUR WINGS",
+    category: "paintings",
+    medium: "Acrylic",
+    dimensions: "48\" × 36\"",
+    year: null,
+    status: "For Sale",
+    description: "Vibrant and dynamic organic acrylic canvas composition featuring a playful sun, wave motifs, and lush floral details.",
+    placeholderUrl: null,
+    localPath: "/src/assets/artworks/paintings/find_your_wings.jpg",
+    featured: true
+  },
+  {
+    id: "custom-surfboard",
+    title: "CUSTOM PAINTED SURFBOARD",
+    category: "custom",
+    medium: "Acrylic & Posca Pen",
+    dimensions: "6'2\" Surfboard",
+    year: null,
+    status: "Commission",
+    description: "Intricate custom monochrome surfboard illustration, marrying organic symmetries with varying pen weights.",
+    placeholderUrl: null,
+    localPath: "/src/assets/artworks/custom/custom_surfboard.jpg",
+    featured: true
+  },
+  {
     id: "paintings-02",
     title: "SOMETHING FROM NOTHIN",
     category: "paintings",
@@ -63,19 +102,6 @@ export const artworks = [
     description: null,
     placeholderUrl: null,
     localPath: "/src/assets/artworks/paintings/eternal_optimist.jpg",
-    featured: true
-  },
-  {
-    id: "paintings-05",
-    title: "PORTAL TO PLAY",
-    category: "paintings",
-    medium: "Acrylic",
-    dimensions: "48\" × 36\"",
-    year: null,
-    status: "For Sale",
-    description: null,
-    placeholderUrl: null,
-    localPath: "/src/assets/artworks/paintings/portal_to_play.jpg",
     featured: true
   },
   {

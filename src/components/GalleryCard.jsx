@@ -18,9 +18,9 @@ const GalleryCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7 }}
-      className="group relative flex flex-col justify-between h-full"
+      className="break-inside-avoid group relative flex flex-col justify-between"
     >
-      <Frame className="p-4 md:p-5 flex flex-col justify-between h-full">
+      <Frame className="p-4 md:p-5 flex flex-col justify-between">
         {/* Image frame */}
         <div 
           onClick={onZoomClick}

@@ -52,7 +52,7 @@ const Artwork = () => {
       {/* Back Navigation link */}
       <div className="max-w-7xl mx-auto mb-12">
         <Link
-          to={`/${artwork.category === 'paintings' ? 'paintings' : artwork.category === 'pen-art' ? 'pen-art' : artwork.category === 'custom' ? 'commissions' : 'archive'}`}
+          to={`/${artwork.category === 'paintings' ? 'paintings' : artwork.category === 'pen-art' ? 'pen-art' : artwork.category === 'custom' ? '' : 'archive'}`}
           className="inline-flex items-center gap-2 text-[10px] font-sans tracking-widest uppercase font-semibold text-theme-text-muted hover:text-theme-text transition-colors"
         >
           <ArrowLeft size={12} /> BACK TO COLLECTION ROOM
