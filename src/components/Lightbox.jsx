@@ -19,6 +19,8 @@ const Lightbox = ({
 
   // Keyboard navigation support
   useEffect(() => {
+    if (!activeArtwork) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowLeft') handlePrev();

@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import MainLayout from './layouts/MainLayout';
 import SmoothScroll from './components/SmoothScroll';
 import { ThemeProvider } from './utils/ThemeContext';
+import Logo from './components/Logo';
 
 // Exhibition Rooms (Pages)
 import Home from './pages/Home';
@@ -37,8 +38,6 @@ const ScrollRestoration = () => {
  * Staggers characters, expands spacing, and cross-fades into the main exhibition.
  */
 const Preloader = ({ onComplete }) => {
-  const title = "LILY MAY STINSON";
-
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
@@ -50,34 +49,18 @@ const Preloader = ({ onComplete }) => {
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } }}
-      className="fixed inset-0 z-[10000] bg-gallery-dark text-warm-white flex flex-col justify-center items-center select-none"
+      className="fixed inset-0 h-[100dvh] w-full z-[10000] bg-gallery-dark text-warm-white flex flex-col justify-center items-center select-none"
     >
       <div className="flex flex-col items-center">
-        {/* Letters Reveal */}
-        <h1 className="overflow-hidden flex text-4xl sm:text-5xl font-light tracking-[0.3em] font-serif mb-4 select-none">
-          {title.split("").map((letter, i) => (
-            <motion.span
-              key={i}
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: "0%", opacity: 1 }}
-              transition={{
-                duration: 1.2,
-                ease: [0.16, 1, 0.3, 1],
-                delay: i * 0.08,
-              }}
-              className="inline-block"
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
-        </h1>
+        {/* Letters Reveal via Unified Reusable Logo Component */}
+        <Logo animate={true} />
 
         {/* Muted curator subtext */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ delay: 1.2, duration: 1.0 }}
-          className="text-[8px] font-sans tracking-[0.35em] uppercase"
+          className="text-[8px] font-sans tracking-[0.35em] uppercase mt-2"
         >
           CURATING EXPOSITIONS &bull; LONDON
         </motion.div>

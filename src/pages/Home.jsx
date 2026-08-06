@@ -45,7 +45,7 @@ const Home = () => {
       </Helmet>
 
       {/* Cinematic Fullscreen Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center bg-warm-white dark:bg-gallery-black overflow-hidden transition-colors duration-500">
+      <section className="relative min-h-[100dvh] h-[100dvh] w-full flex items-center justify-center bg-warm-white dark:bg-gallery-black overflow-hidden transition-colors duration-500">
         {/* Full-bleed Background Artwork with Dark Overlay */}
         <motion.div 
           style={{ scale: heroBgScale }}

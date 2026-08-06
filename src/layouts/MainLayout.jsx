@@ -75,11 +75,8 @@ const MainLayout = () => {
     >
       {/* Scroll Progress Indicator Bar */}
       <div 
-        className="fixed top-0 left-0 h-[2.5px] z-[9999] transition-all duration-100 ease-out"
-        style={{ 
-          width: `${scrollProgress}%`,
-          backgroundColor: isDarkPage ? 'var(--color-accent-yellow-border)' : 'var(--color-gallery-dark)'
-        }}
+        className="fixed top-0 left-0 h-[2.5px] z-[9999] bg-gallery-dark dark:bg-accent-yellow-border transition-all duration-100 ease-out"
+        style={{ width: `${scrollProgress}%` }}
         aria-hidden="true"
       />
 
@@ -97,16 +94,15 @@ const MainLayout = () => {
       {/* Luxury Minimal Footer */}
       <Footer />
 
-      {/* Floating Quick Action Group */}
-      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[90] flex flex-col gap-2.5 sm:gap-3 items-center">
+      {/* Floating Quick Action Group with Safe Area margin */}
+      <div 
+        className="fixed right-4 sm:right-8 z-[90] flex flex-col gap-2.5 sm:gap-3 items-center"
+        style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
+      >
         {artistConfig.contact.email && (
           <a
             href={`mailto:${artistConfig.contact.email}`}
-            className={`w-9 h-9 md:w-10 md:h-10 rounded-full border transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center ${
-              isDarkPage
-                ? 'bg-gallery-dark border-white/10 hover:border-white text-white hover:bg-neutral-900'
-                : 'bg-warm-white border-black/10 hover:border-black text-gallery-dark hover:bg-neutral-50'
-            }`}
+            className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-gallery-dark dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center"
             title="Email Lily"
             aria-label="Send email"
           >
@@ -118,11 +114,7 @@ const MainLayout = () => {
           href={artistConfig.contact.instagramLink}
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-9 h-9 md:w-10 md:h-10 rounded-full border transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center ${
-            isDarkPage
-              ? 'bg-gallery-dark border-white/10 hover:border-white text-white hover:bg-neutral-900'
-              : 'bg-warm-white border-black/10 hover:border-black text-gallery-dark hover:bg-neutral-50'
-          }`}
+          className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-gallery-dark dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center"
           title="Instagram"
           aria-label="Instagram profile"
         >
@@ -133,11 +125,7 @@ const MainLayout = () => {
           href={`https://wa.me/${artistConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-9 h-9 md:w-10 md:h-10 rounded-full border transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center ${
-            isDarkPage
-              ? 'bg-gallery-dark border-white/10 hover:border-white text-white hover:bg-neutral-900'
-              : 'bg-warm-white border-black/10 hover:border-black text-gallery-dark hover:bg-neutral-50'
-          }`}
+          className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-gallery-dark dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center"
           title="WhatsApp Chat"
           aria-label="WhatsApp Chat"
         >
@@ -147,11 +135,7 @@ const MainLayout = () => {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className={`w-9 h-9 md:w-10 md:h-10 rounded-full border transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center ${
-              isDarkPage
-                ? 'bg-gallery-dark border-white/10 hover:border-white text-white hover:bg-neutral-900'
-                : 'bg-warm-white border-black/10 hover:border-black text-gallery-dark hover:bg-neutral-50'
-            }`}
+            className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-gallery-dark dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-300 transform active:scale-95 cursor-pointer shadow-md hover:translate-y-[-2px] flex items-center justify-center"
             title="Scroll to Top"
             aria-label="Scroll back to top"
           >

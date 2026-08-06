@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Magnetic from './Magnetic';
 import { useTheme } from '../utils/ThemeContext';
 import { artistConfig } from '../data/config';
+import Logo from './Logo';
 
 /**
  * Editorial Top Navigation component.
@@ -53,24 +54,25 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-[99] transition-all duration-500 ${
         scrolled
           ? isDarkPage
-            ? 'bg-gallery-dark/90 border-b border-white/5 py-4 backdrop-blur-sm'
-            : 'bg-warm-white/95 border-b border-black/5 py-4 backdrop-blur-sm'
-          : 'bg-transparent py-7'
+            ? 'bg-gallery-dark/90 border-b border-white/5 backdrop-blur-sm'
+            : 'bg-warm-white/95 border-b border-black/5 backdrop-blur-sm'
+          : 'bg-transparent'
       }`}
+      style={{
+        paddingTop: scrolled 
+          ? 'calc(1rem + env(safe-area-inset-top, 0px))' 
+          : 'calc(1.75rem + env(safe-area-inset-top, 0px))',
+        paddingBottom: scrolled ? '1rem' : '1.75rem'
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
         {/* Brand Identity */}
         <Link
           to="/"
-          className="font-light font-serif uppercase cursor-pointer transition-all duration-300 hover:opacity-75 select-none"
-          style={{ 
-            color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)', 
-            fontSize: "clamp(0.72rem, 4.2vw, 1.25rem)", 
-            letterSpacing: "clamp(0.12em, 2vw, 0.25em)",
-            whiteSpace: "nowrap"
-          }}
+          className="cursor-pointer transition-all duration-300 hover:opacity-75 flex items-center"
+          style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
         >
-          Lily May Stinson
+          <Logo animate={false} />
         </Link>
 
         {/* Nav & Action Controls */}
@@ -83,22 +85,18 @@ const Navbar = () => {
                 <Magnetic key={link.path} range={40} strength={0.25}>
                   <Link
                     to={link.path}
-                    className="relative py-1 cursor-pointer transition-colors duration-300 hover:text-opacity-80"
-                    style={{
-                      color: isDarkPage 
-                        ? isActive ? 'var(--color-accent-yellow-border)' : '#FAF9F6' 
-                        : isActive ? 'var(--color-gallery-dark)' : 'rgba(12, 12, 12, 0.65)'
-                    }}
+                    className={`relative py-1 cursor-pointer transition-colors duration-300 font-medium ${
+                      isActive 
+                        ? 'text-accent-yellow-border' 
+                        : 'text-gallery-dark/65 dark:text-warm-white/65 hover:text-gallery-dark dark:hover:text-warm-white'
+                    }`}
                   >
                     {link.name}
                     {/* Subtle editorial underline reveal */}
                     {isActive && (
                       <motion.div
                         layoutId="activeNavUnderline"
-                        className="absolute bottom-0 left-0 w-full h-[1px]"
-                        style={{
-                          backgroundColor: isDarkPage ? 'var(--color-accent-yellow-border)' : 'var(--color-gallery-dark)'
-                        }}
+                        className="absolute bottom-0 left-0 w-full h-[1px] bg-accent-yellow-border"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -111,11 +109,7 @@ const Navbar = () => {
           {/* Premium Theme Toggle button */}
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-full border transition-all duration-300 transform active:scale-90 cursor-pointer flex items-center justify-center w-8 h-8 md:w-8.5 md:h-8.5 shadow-sm"
-            style={{ 
-              borderColor: isDarkPage ? 'rgba(250, 249, 246, 0.15)' : 'rgba(12, 12, 12, 0.15)',
-              color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)'
-            }}
+            className="p-1.5 rounded-full border border-black/15 dark:border-white/15 text-gallery-dark dark:text-warm-white hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center justify-center w-8 h-8 md:w-8.5 md:h-8.5 shadow-sm"
             title={theme === 'light' ? "Switch to Dark Gallery" : "Switch to Light Gallery"}
             aria-label="Toggle theme"
           >
@@ -125,8 +119,7 @@ const Navbar = () => {
           {/* Mobile Hamburger toggle */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 cursor-pointer"
-            style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
+            className="lg:hidden p-1.5 cursor-pointer text-gallery-dark dark:text-warm-white hover:opacity-75 transition-all duration-300"
             aria-label="Open navigation menu"
           >
             <Menu size={20} />
@@ -142,19 +135,22 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`fixed inset-0 z-[9999] flex flex-col ${
+            className={`fixed inset-0 h-[100dvh] w-full z-[9999] flex flex-col transition-colors duration-500 ${
               isDarkPage ? 'bg-gallery-dark text-white' : 'bg-warm-white text-gallery-dark'
             }`}
+            style={{
+              paddingTop: 'env(safe-area-inset-top, 0px)',
+              paddingBottom: 'env(safe-area-inset-bottom, 0px)'
+            }}
           >
             {/* Drawer Header */}
-            <div className="w-full flex justify-between items-center px-6 py-6 md:px-12">
-              <span className="text-sm xs:text-base sm:text-lg font-serif tracking-[0.15em] sm:tracking-[0.25em] uppercase font-light truncate max-w-[60vw]">
-                Lily May Stinson
+            <div className="w-full flex justify-between items-center px-6 pt-6 pb-4 md:px-12">
+              <span className="text-gallery-dark dark:text-warm-white transition-colors duration-500">
+                <Logo animate={false} />
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 cursor-pointer"
-                style={{ color: isDarkPage ? '#FAF9F6' : 'var(--color-gallery-dark)' }}
+                className="p-1.5 cursor-pointer text-gallery-dark dark:text-warm-white hover:opacity-75 transition-all duration-300"
                 aria-label="Close navigation menu"
               >
                 <X size={20} />
@@ -174,12 +170,11 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.path}
-                      className="font-serif text-3xl font-light tracking-widest uppercase hover:opacity-75 transition-opacity"
-                      style={{
-                        color: isActive 
-                          ? isDarkPage ? 'var(--color-accent-yellow-border)' : 'var(--color-gallery-dark)'
-                          : isDarkPage ? '#FAF9F6' : 'rgba(12, 12, 12, 0.6)'
-                      }}
+                      className={`font-serif text-3xl font-light tracking-widest uppercase hover:opacity-75 transition-colors duration-300 ${
+                        isActive 
+                          ? 'text-accent-yellow-border' 
+                          : 'text-gallery-dark/60 dark:text-warm-white/70 hover:text-gallery-dark dark:hover:text-warm-white'
+                      }`}
                     >
                       {link.name}
                     </Link>
@@ -189,7 +184,7 @@ const Navbar = () => {
             </div>
 
             {/* Drawer Footer info */}
-            <div className="text-center pb-8 font-sans text-[8px] tracking-[0.3em] opacity-40 uppercase">
+            <div className="text-center pb-8 pt-4 font-sans text-[8px] tracking-[0.3em] opacity-40 uppercase">
               {artistConfig.contact.email ? `${artistConfig.contact.email.toUpperCase()} • ` : ''}&copy; 2026 LILY MAY STINSON
             </div>
           </motion.div>
