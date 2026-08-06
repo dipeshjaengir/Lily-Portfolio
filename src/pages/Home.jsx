@@ -8,6 +8,7 @@ import { artworks } from '../data/artworks';
 import { getArtworkImage } from '../utils/assets';
 import Image from '../components/Image';
 import Magnetic from '../components/Magnetic';
+import { useTheme } from '../utils/ThemeContext';
 
 /**
  * Home Room component (Immersive Dark Theme).
@@ -17,6 +18,8 @@ import Magnetic from '../components/Magnetic';
 const Home = () => {
   const containerRef = useRef(null);
   const featuredScrollRef = useRef(null);
+  const { theme } = useTheme();
+  const isDarkTheme = theme === 'dark';
 
   // Extract featured items for Home showcase
   const featuredArtworks = artworks.filter(art => art.featured);
@@ -25,7 +28,8 @@ const Home = () => {
   const { scrollY } = useScroll();
   const heroTextY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroBgScale = useTransform(scrollY, [0, 800], [1.02, 1.15]);
-  const heroBgOpacity = useTransform(scrollY, [0, 800], [0.35, 0.1]);
+  const initialOpacity = isDarkTheme ? 0.35 : 0.75;
+  const heroBgOpacity = useTransform(scrollY, [0, 800], [initialOpacity, 0.1]);
 
   const scrollToFeatured = () => {
     const target = document.getElementById('featured-exhibition');
@@ -67,7 +71,7 @@ const Home = () => {
             />
           </motion.div>
           {/* Heavy Editorial Vignette Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/40 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/15 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
           <div className="absolute inset-0 bg-transparent dark:bg-black/40 transition-colors duration-500" />
         </motion.div>
 

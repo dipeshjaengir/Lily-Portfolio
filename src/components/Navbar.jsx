@@ -14,7 +14,6 @@ import Logo from './Logo';
  */
 const Navbar = () => {
   const location = useLocation();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme, headerStyle } = useTheme();
 
@@ -30,20 +29,6 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
-
-  // Scroll depth flag solely for padding shrink visual transition
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -63,15 +48,13 @@ const Navbar = () => {
     ? 'border-white/15 hover:bg-white/10'
     : 'border-theme-border-medium hover:bg-theme-bg-surface';
 
+  const headerPaddingClasses = isTransparent
+    ? 'pt-[calc(1.5rem+env(safe-area-inset-top,0px))] pb-6 md:pt-[calc(1.75rem+env(safe-area-inset-top,0px))] md:pb-7'
+    : 'pt-[calc(1rem+env(safe-area-inset-top,0px))] pb-4 md:pt-[calc(1rem+env(safe-area-inset-top,0px))] md:pb-4';
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[99] transition-all duration-500 ${headerBgClasses} ${headerTextClasses}`}
-      style={{
-        paddingTop: scrolled 
-          ? 'calc(1rem + env(safe-area-inset-top, 0px))' 
-          : 'calc(1.75rem + env(safe-area-inset-top, 0px))',
-        paddingBottom: scrolled ? '1rem' : '1.75rem'
-      }}
+      className={`fixed top-0 left-0 w-full z-[99] transition-all duration-500 ${headerBgClasses} ${headerTextClasses} ${headerPaddingClasses}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
         {/* Brand Identity */}
