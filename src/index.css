@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gallery-dark: #0C0C0C;
+  --color-gallery-black: #050505;
+  --color-warm-white: #FAF9F6;
+  --color-soft-white: #F5F5F7;
+  
+  --color-accent-yellow: #FCFBF0;
+  --color-accent-pink: #FDF2F4;
+  --color-accent-purple: #F5F2FC;
+  
+  --color-accent-yellow-border: #EBD99C;
+  --color-accent-pink-border: #E5C2C9;
+  --color-accent-purple-border: #C3BCDB;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-warm-white);
+    color: var(--color-gallery-dark);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide default cursor on desktop to support smooth custom cursor */
+  @media (min-width: 768px) {
+    body.custom-cursor-active {
+      cursor: none;
+    }
+    body.custom-cursor-active a,
+    body.custom-cursor-active button,
+    body.custom-cursor-active input,
+    body.custom-cursor-active select,
+    body.custom-cursor-active textarea,
+    body.custom-cursor-active [role="button"] {
+      cursor: none;
+    }
+  }
+}
+
+/* Custom Scrollbar - Museum aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-warm-white);
+}
+.dark-theme-scroll ::-webkit-scrollbar-track {
+  background: var(--color-gallery-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+.dark-theme-scroll ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Cursor Trail */
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(12, 12, 12, 0.25);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: rgba(12, 12, 12, 0.95);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+/* Cursor on Dark Theme */
+.cursor-dark .cursor-ring {
+  border-color: rgba(250, 249, 246, 0.3);
+}
+.cursor-dark .cursor-dot {
+  background-color: rgba(250, 249, 246, 0.95);
+}
+
+/* Cursor Interactive States */
+.cursor-ring.hovered {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(12, 12, 12, 0.8);
+  background-color: rgba(12, 12, 12, 0.03);
+}
+.cursor-dark .cursor-ring.hovered {
+  border-color: rgba(250, 249, 246, 0.8);
+  background-color: rgba(250, 249, 246, 0.05);
+}
+
+/* Page horizontal custom scrollbar hide */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Notebook textures for Pen Art */
+.notebook-grid {
+  position: relative;
+}
+.notebook-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, #B0AFAF 1px, transparent 1px),
+    linear-gradient(to bottom, #B0AFAF 1px, transparent 1px);
+}
+
+/* Notebook lined texture */
+.notebook-lined {
+  position: relative;
+}
+.notebook-lined::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-size: 100% 28px;
+  background-image: linear-gradient(to bottom, transparent 27px, #9C9A95 1px);
+}
+
+/* Editorial paper shadows */
+.shadow-premium {
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.06);
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis-stopped {
+  overflow: hidden;
+}
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   EXHIBITION THEMES (INVERTED/LIGHT & DARK GALLERIES)
+   ========================================================================== */
+
+/* 1. Global inverted class applied via localStorage state on body */
+body.theme-inverted {
+  /* Dynamic custom cursors swap */
+  --color-cursor-ring: rgba(250, 249, 246, 0.3);
+  --color-cursor-dot: rgba(250, 249, 246, 0.95);
+}
+
+/* 2. Theme-Dark: Swaps interior pages (which are warm-white) to dark */
+.theme-dark {
+  background-color: var(--color-gallery-dark) !important;
+  color: var(--color-warm-white) !important;
+}
+
+.theme-dark header,
+.theme-dark footer,
+.theme-dark section,
+.theme-dark main,
+.theme-dark select,
+.theme-dark input,
+.theme-dark textarea {
+  color: var(--color-warm-white) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.theme-dark .bg-warm-white {
+  background-color: var(--color-gallery-dark) !important;
+  color: var(--color-warm-white) !important;
+}
+
+.theme-dark .text-gallery-dark {
+  color: var(--color-warm-white) !important;
+}
+
+.theme-dark .text-neutral-900,
+.theme-dark .text-neutral-800,
+.theme-dark .text-neutral-700 {
+  color: var(--color-warm-white) !important;
+}
+
+.theme-dark .bg-white {
+  background-color: #121212 !important;
+  color: var(--color-warm-white) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.theme-dark .bg-white\/80 {
+  background-color: rgba(18, 18, 18, 0.8) !important;
+}
+
+.theme-dark .border-black\/5 {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.theme-dark .border-black\/10,
+.theme-dark .border-black\/15 {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.theme-dark .bg-neutral-50,
+.theme-dark .bg-neutral-50\/50,
+.theme-dark .bg-neutral-100 {
+  background-color: #161616 !important;
+  color: var(--color-warm-white) !important;
+}
+
+.theme-dark .bg-soft-white {
+  background-color: #1a1a1a !important;
+}
+
+.theme-dark ::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.theme-dark .shadow-premium {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 3. Theme-Light: Swaps Home page (which is gallery-dark) to light */
+.theme-light {
+  background-color: var(--color-warm-white) !important;
+  color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .bg-gallery-black,
+.theme-light .bg-gallery-dark {
+  background-color: var(--color-warm-white) !important;
+  color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .text-warm-white,
+.theme-light .text-white {
+  color: var(--color-gallery-dark) !important;
+}
+
+.theme-light .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.theme-light .text-white\/70 {
+  color: rgba(12, 12, 12, 0.7) !important;
+}
+
+.theme-light .text-white\/50 {
+  color: rgba(12, 12, 12, 0.5) !important;
+}
+
+.theme-light .bg-black\/20 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+.theme-light .bg-black\/40 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light .bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--color-warm-white) 0%, rgba(250, 249, 246, 0.6) 50%, transparent 100%) !important;
+}
+
