@@ -281,12 +281,14 @@ body.theme-inverted {
 }
 
 /* CTA & Hover buttons */
-.theme-dark .bg-gallery-dark {
+.theme-dark a.bg-gallery-dark,
+.theme-dark button.bg-gallery-dark {
   background-color: #C5A86E !important; /* Gold CTA */
   color: #0C0C0C !important;
 }
 
-.theme-dark .bg-gallery-dark:hover {
+.theme-dark a.bg-gallery-dark:hover,
+.theme-dark button.bg-gallery-dark:hover {
   background-color: #FAF9F6 !important;
   color: #0C0C0C !important;
 }

@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
  */
 const NotFound = () => {
   return (
-    <div className="w-full min-h-screen bg-gallery-dark text-warm-white flex flex-col justify-center items-center px-6 py-12 relative overflow-hidden">
+    <div className="w-full text-warm-white flex flex-col justify-center items-center px-6 py-24 relative overflow-hidden bg-gallery-dark">
       <Helmet>
         <title>Room Not Found | Lily May Stinson Gallery</title>
         <meta name="robots" content="noindex, follow" />

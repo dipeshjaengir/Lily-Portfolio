@@ -22,7 +22,7 @@ const Photography = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>Photography Journal | Lily May Stinson</title>
         <meta name="description" content="A curated photography journal by Lily May Stinson, capturing quiet moments, lighting textures, and botanical structures." />

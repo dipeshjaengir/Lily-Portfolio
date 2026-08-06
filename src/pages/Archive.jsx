@@ -20,7 +20,7 @@ const Archive = () => {
   const archiveArtworks = artworks.filter(art => art.category === 'archive');
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>Older Works Archive | Lily May Stinson</title>
         <meta name="description" content="View the early academic and experimental creations of Lily May Stinson, containing poster colour drapery, terracotta clay, and caricature drafts." />

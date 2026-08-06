@@ -27,7 +27,7 @@ const Paintings = () => {
     : paintings.filter(art => art.medium.toLowerCase().includes(filterMedium.toLowerCase()));
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 relative transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 relative transition-colors duration-500">
       <Helmet>
         <title>Paintings Gallery Room | Lily May Stinson</title>
         <meta name="description" content="Explore Lily May Stinson's paintings, featuring layered gesso textures, heavy body acrylic, and plaster relief canvases." />

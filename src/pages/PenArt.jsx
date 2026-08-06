@@ -20,7 +20,7 @@ const PenArt = () => {
   const penArtworks = artworks.filter(art => art.category === 'pen-art');
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 relative notebook-grid transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 relative notebook-grid transition-colors duration-500">
       <Helmet>
         <title>Pen Art & Printmaking | Lily May Stinson</title>
         <meta name="description" content="Explore Lily May Stinson's monochrome printmaking, woodcuts, copperplate drypoint engravings, and charcoal shading drawings." />

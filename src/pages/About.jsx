@@ -14,7 +14,7 @@ const About = () => {
   const profileImg = getProfileImage(artistConfig.about.profileImage);
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>About Lily May Stinson | Artist Philosophy & Story</title>
         <meta name="description" content="Discover the artistic identity and biography of Lily May Stinson, exploring her specialized printmaking and sensory inspiration." />

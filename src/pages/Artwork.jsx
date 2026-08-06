@@ -41,7 +41,7 @@ const Artwork = () => {
   const resolvedImg = getArtworkImage(artwork.localPath, artwork.placeholderUrl);
 
   return (
-    <div className="w-full min-h-screen bg-warm-white dark:bg-gallery-dark text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 text-left transition-colors duration-500">
+    <div className="w-full text-gallery-dark dark:text-warm-white pt-32 pb-24 px-6 md:px-12 text-left transition-colors duration-500">
       <Helmet>
         <title>{artwork.title ? `${artwork.title} | Lily May Stinson` : 'Artwork Exhibit | Lily May Stinson'}</title>
         <meta name="description" content={artwork.title ? `${artwork.title} - ${artwork.medium || ''} (${artwork.year || ''}) by Lily May Stinson. ${artwork.description || ''}` : "Portfolio item by visual artist Lily May Stinson."} />
