@@ -74,7 +74,7 @@ Message: ${formState.message}`;
             GET IN TOUCH
           </span>
           <h1 
-            className="font-serif font-light tracking-wide uppercase leading-[1.15] mb-8"
+            className="font-serif font-light tracking-wide uppercase leading-[1.15] mb-8 text-gallery-dark dark:text-warm-white"
             style={{ fontSize: "clamp(1.8rem, 6vw, 3.8rem)" }}
           >
             Let's Collaborate

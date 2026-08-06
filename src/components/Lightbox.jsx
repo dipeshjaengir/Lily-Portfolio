@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { useTheme } from '../utils/ThemeContext';
 import Image from './Image';
 import { getArtworkImage } from '../utils/assets';
 
@@ -14,6 +16,8 @@ const Lightbox = ({
   onClose, 
   onSelectArtwork 
 }) => {
+  const location = useLocation();
+  const { theme } = useTheme();
   const [zoomScale, setZoomScale] = useState(1);
   const [showDetails, setShowDetails] = useState(true);
 
@@ -61,6 +65,15 @@ const Lightbox = ({
   const toggleZoom = () => {
     setZoomScale(prev => (prev === 1 ? 1.8 : 1));
   };
+
+  // Mandatory Pre-execution Debugging Log
+  console.log('[Lightbox Runtime State Audit]', {
+    currentTheme: theme,
+    isDarkTheme: theme === 'dark',
+    currentRoute: location.pathname,
+    lightboxBgClasses: 'bg-warm-white/98 dark:bg-black/95',
+    lightboxFrameClasses: 'bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 shadow-2xl'
+  });
 
   return (
     <AnimatePresence>
@@ -124,7 +137,7 @@ const Lightbox = ({
             </>
           )}
 
-          {/* Draggable/Zoomable Image container */}
+          {/* Draggable/Zoomable Image container acting as physical frame */}
           <motion.div 
             key={activeArtwork.id}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -135,13 +148,13 @@ const Lightbox = ({
             }}
             exit={{ opacity: 0, scale: 0.95 }}
             onClick={toggleZoom}
-            className="max-h-[70vh] max-w-[85vw] md:max-h-[80vh] md:max-w-[70vw] relative z-10 flex items-center justify-center cursor-zoom-in"
+            className="max-h-[70vh] max-w-[85vw] md:max-h-[80vh] md:max-w-[70vw] relative z-10 flex items-center justify-center cursor-zoom-in bg-white dark:bg-neutral-900 p-3 sm:p-4 border border-black/5 dark:border-white/10 shadow-2xl transition-colors duration-500"
           >
             {resolvedImg ? (
               <img
                 src={resolvedImg}
                 alt={activeArtwork.title}
-                className="max-h-[70vh] max-w-[85vw] md:max-h-[80vh] md:max-w-[70vw] object-contain shadow-2xl pointer-events-none"
+                className="max-h-[66vh] max-w-[80vw] md:max-h-[76vh] md:max-w-[66vw] object-contain pointer-events-none"
               />
             ) : (
               <div className="w-[300px] h-[400px] bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 flex flex-col justify-center items-center text-center p-6 rounded-sm select-none transition-colors duration-500">

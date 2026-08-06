@@ -45,7 +45,10 @@ const Home = () => {
       </Helmet>
 
       {/* Cinematic Fullscreen Hero Section */}
-      <section className="relative min-h-[100dvh] h-[100dvh] w-full flex items-center justify-center bg-warm-white dark:bg-gallery-black overflow-hidden transition-colors duration-500">
+      <section 
+        data-header-dark
+        className="relative min-h-[100dvh] h-[100dvh] w-full flex items-center justify-center bg-warm-white dark:bg-gallery-black overflow-hidden transition-colors duration-500"
+      >
         {/* Full-bleed Background Artwork with Dark Overlay */}
         <motion.div 
           style={{ scale: heroBgScale }}
@@ -64,8 +67,8 @@ const Home = () => {
             />
           </motion.div>
           {/* Heavy Editorial Vignette Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-warm-white/60 to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
-          <div className="absolute inset-0 bg-white/10 dark:bg-black/40 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/40 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-transparent dark:bg-black/40 transition-colors duration-500" />
         </motion.div>
 
         {/* Hero Text Content */}

@@ -409,27 +409,3 @@ body.theme-inverted {
 .theme-light .group-hover\:border-accent-yellow-border\/20:hover {
   border-color: rgba(140, 123, 80, 0.3) !important;
 }
-
-.theme-light .border-white\/10 {
-  border-color: rgba(12, 12, 12, 0.1) !important;
-}
-
-.theme-light .border-white\/5 {
-  border-color: rgba(12, 12, 12, 0.05) !important;
-}
-
-/* SOLD Badge in Light Mode */
-.theme-light .bg-neutral-900\/95.text-white,
-.theme-light .bg-neutral-900.text-white,
-.theme-light .bg-white\/95.text-gallery-dark {
-  background-color: var(--color-gallery-dark) !important;
-  color: #ffffff !important;
-}
-
-/* ARCHIVE Badge in Light Mode */
-.theme-light .bg-neutral-900\/95.text-white[title="ARCHIVE"] {
-  background-color: var(--color-soft-white) !important;
-  color: rgba(12, 12, 12, 0.6) !important;
-}
-
-

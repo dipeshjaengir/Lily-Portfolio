@@ -76,7 +76,7 @@ const Footer = () => {
       {/* Trademark Line */}
       <div className="max-w-7xl mx-auto mt-12 md:mt-16 pt-8 border-t border-current opacity-[0.04] flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] tracking-[0.3em] uppercase">
         <span>&copy; 2026 LILY MAY STINSON. ALL RIGHTS RESERVED.</span>
-        <span>DESIGNED BY ANTIGRAVITY</span>
+        
       </div>
     </footer>
   );
