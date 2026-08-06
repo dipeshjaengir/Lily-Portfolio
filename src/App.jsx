@@ -62,7 +62,7 @@ const Preloader = ({ onComplete }) => {
           transition={{ delay: 1.2, duration: 1.0 }}
           className="text-[8px] font-sans tracking-[0.35em] uppercase mt-2"
         >
-          CURATING EXPOSITIONS &bull; LONDON
+          CURATING EXPOSITIONS &bull; USA
         </motion.div>
       </div>
     </motion.div>

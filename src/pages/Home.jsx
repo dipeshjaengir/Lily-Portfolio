@@ -38,7 +38,7 @@ const Home = () => {
     <div ref={containerRef} className="relative z-10 w-full overflow-hidden">
       <Helmet>
         <title>Lily May Stinson | Curated Visual Exhibition & Portfolio</title>
-        <meta name="description" content="Immersive digital art exhibition of London-based visual artist Lily May Stinson. Discover relief prints, modern painting, and charcoal studies." />
+        <meta name="description" content="Immersive digital art exhibition of USA-based visual artist Lily May Stinson. Discover relief prints, modern painting, and charcoal studies." />
         <meta property="og:title" content="Lily May Stinson | Digital Art Exhibition" />
         <meta property="og:description" content="Step into a curated gallery space exploring paintings, woodcuts, and printmaking." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1501472312651-726afd116ff1?auto=format&fit=crop&q=80&w=1200" />

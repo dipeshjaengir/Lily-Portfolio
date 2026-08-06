@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
           
           <span className="opacity-45 text-[8px] mt-1 tracking-[0.25em] text-center md:text-right">
-            DIGITAL EXHIBITION ROOMS &bull; LONDON, UK
+            DIGITAL EXHIBITION ROOMS &bull; USA
           </span>
         </div>
 
