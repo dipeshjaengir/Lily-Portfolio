@@ -6,6 +6,16 @@
   --color-warm-white: #FAF9F6;
   --color-soft-white: #F5F5F7;
   
+  /* Centralized Semantic Tokens */
+  --color-theme-bg: var(--color-warm-white);
+  --color-theme-bg-surface: var(--color-soft-white);
+  --color-theme-bg-card: #ffffff;
+  --color-theme-text: var(--color-gallery-dark);
+  --color-theme-text-muted: rgba(12, 12, 12, 0.6);
+  --color-theme-border: rgba(12, 12, 12, 0.05);
+  --color-theme-border-medium: rgba(12, 12, 12, 0.1);
+  --color-theme-accent: #8C7B50;
+
   --color-accent-yellow: #FCFBF0;
   --color-accent-pink: #FDF2F4;
   --color-accent-purple: #F5F2FC;
@@ -18,10 +28,21 @@
   --font-sans: "Inter", sans-serif;
 }
 
+:root.dark {
+  --color-theme-bg: var(--color-gallery-black);
+  --color-theme-bg-surface: var(--color-gallery-dark);
+  --color-theme-bg-card: #18181C;
+  --color-theme-text: var(--color-warm-white);
+  --color-theme-text-muted: rgba(250, 249, 246, 0.55);
+  --color-theme-border: rgba(255, 255, 255, 0.06);
+  --color-theme-border-medium: rgba(255, 255, 255, 0.15);
+  --color-theme-accent: #C5A86E;
+}
+
 @layer base {
   body {
-    background-color: var(--color-warm-white);
-    color: var(--color-gallery-dark);
+    background-color: var(--color-theme-bg);
+    color: var(--color-theme-text);
     font-family: var(--font-sans);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;

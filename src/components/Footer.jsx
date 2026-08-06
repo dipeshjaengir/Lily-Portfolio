@@ -13,11 +13,7 @@ const Footer = () => {
 
   return (
     <footer 
-      className={`relative z-10 w-full mt-24 px-6 md:px-12 py-12 md:py-16 border-t transition-colors duration-500 ${
-        isDarkPage 
-          ? 'border-white/5 bg-gallery-dark/40' 
-          : 'border-black/5 bg-neutral-50'
-      }`}
+      className="relative z-10 w-full mt-24 px-6 md:px-12 py-12 md:py-16 border-t border-theme-border bg-theme-bg-surface transition-colors duration-500"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         

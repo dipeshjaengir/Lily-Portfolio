@@ -7,6 +7,7 @@ export const ThemeProvider = ({ children }) => {
     const saved = localStorage.getItem('theme-mode');
     return saved ? saved : 'dark'; // Default to dark gallery as requested
   });
+  const [headerStyle, setHeaderStyle] = useState('solid'); // 'solid' | 'transparent-overlay'
 
   useEffect(() => {
     localStorage.setItem('theme-mode', theme);
@@ -29,7 +30,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, headerStyle, setHeaderStyle }}>
       {children}
     </ThemeContext.Provider>
   );

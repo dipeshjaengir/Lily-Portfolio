@@ -37,8 +37,7 @@ const MainLayout = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const isHome = location.pathname === '/';
-  const { theme } = useTheme();
+  const { theme, setHeaderStyle } = useTheme();
   const isDarkPage = theme === 'dark';
 
   // Monitor scroll for progress and top trigger
@@ -61,16 +60,46 @@ const MainLayout = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Setup global IntersectionObserver to detect when header overlays data-header-dark sections
+  useEffect(() => {
+    const darkSections = document.querySelectorAll('[data-header-dark]');
+    
+    if (darkSections.length === 0) {
+      setHeaderStyle('solid');
+      return;
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -95% 0px', // Target the very top of viewport
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      let isOverDark = false;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isOverDark = true;
+        }
+      });
+      setHeaderStyle(isOverDark ? 'transparent-overlay' : 'solid');
+    }, observerOptions);
+
+    darkSections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [location.pathname, setHeaderStyle]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div 
-      className={`relative min-h-screen flex flex-col justify-between overflow-x-hidden transition-colors duration-700 ${
-        isDarkPage 
-          ? 'bg-gallery-dark text-warm-white dark-theme-scroll theme-dark' 
-          : 'bg-warm-white text-gallery-dark theme-light'
+      className={`relative min-h-screen flex flex-col justify-between overflow-x-hidden transition-colors duration-700 bg-theme-bg text-theme-text ${
+        isDarkPage ? 'dark-theme-scroll' : ''
       }`}
     >
       {/* Scroll Progress Indicator Bar */}
