@@ -69,11 +69,21 @@ const Home = () => {
               height="h-full"
               objectFit="cover"
               objectPosition="72% 35%"
-              className="filter saturate-[0.82] dark:saturate-[0.95] brightness-[0.98] dark:brightness-[0.72] transition-all duration-500"
+              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-[0.98] dark:brightness-[0.82] contrast-[1.03] dark:contrast-[1.08] transition-all duration-500"
             />
           </motion.div>
+          {/* Subtle Depth-of-Field Cinematic Edge Blur */}
+          <div 
+            className="absolute inset-0 transition-all duration-500 pointer-events-none"
+            style={{
+              backdropFilter: "blur(1.5px)",
+              WebkitBackdropFilter: "blur(1.5px)",
+              maskImage: "radial-gradient(circle at 72% 35%, transparent 35%, black 75%)",
+              WebkitMaskImage: "radial-gradient(circle at 72% 35%, transparent 35%, black 75%)"
+            }}
+          />
           {/* Editorial Vignette Overlay with Museum Lighting Spotlight */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,transparent_5%,rgba(250,249,246,0.45)_55%,rgba(250,249,246,0.85)_95%)] bg-warm-white/50 dark:bg-[radial-gradient(circle_at_70%_40%,transparent_10%,rgba(5,5,5,0.3)_60%,rgba(5,5,5,0.92)_98%)] dark:bg-black/35 transition-all duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_35%,transparent_15%,rgba(250,249,246,0.1)_45%,rgba(250,249,246,0.45)_95%)] bg-warm-white/10 dark:bg-[radial-gradient(circle_at_72%_35%,transparent_20%,rgba(5,5,5,0.2)_55%,rgba(5,5,5,0.72)_95%)] dark:bg-black/15 transition-all duration-500 pointer-events-none" />
           {/* Bottom gradient fade for scrolling transition */}
           <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-60 transition-colors duration-500 pointer-events-none" />
         </motion.div>
