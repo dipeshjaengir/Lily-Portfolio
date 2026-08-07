@@ -9,6 +9,7 @@ import { getArtworkImage } from '../utils/assets';
 import Image from '../components/Image';
 import Magnetic from '../components/Magnetic';
 import { useTheme } from '../utils/ThemeContext';
+import heroBgImage from '../assets/hero_bg.jpg';
 
 /**
  * Home Room component (Immersive Dark Theme).
@@ -62,17 +63,19 @@ const Home = () => {
             style={{ opacity: heroBgOpacity }}
             className="w-full h-full"
           >
-            {/* Using a striking placeholder artwork representing raw textured printmaking */}
             <Image 
-              src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1800" 
+              src={heroBgImage} 
               alt="Lily May Stinson - Hero Artwork" 
               height="h-full"
               objectFit="cover"
+              objectPosition="72% 35%"
+              className="filter saturate-[0.82] dark:saturate-[0.95] brightness-[0.98] dark:brightness-[0.72] transition-all duration-500"
             />
           </motion.div>
-          {/* Heavy Editorial Vignette Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/15 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
-          <div className="absolute inset-0 bg-transparent dark:bg-black/40 transition-colors duration-500" />
+          {/* Editorial Vignette Overlay with Museum Lighting Spotlight */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,transparent_5%,rgba(250,249,246,0.45)_55%,rgba(250,249,246,0.85)_95%)] bg-warm-white/50 dark:bg-[radial-gradient(circle_at_70%_40%,transparent_10%,rgba(5,5,5,0.3)_60%,rgba(5,5,5,0.92)_98%)] dark:bg-black/35 transition-all duration-500 pointer-events-none" />
+          {/* Bottom gradient fade for scrolling transition */}
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-60 transition-colors duration-500 pointer-events-none" />
         </motion.div>
 
         {/* Hero Text Content */}

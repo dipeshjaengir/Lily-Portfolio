@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 /**
  * Premium Image Component with lazy loading, skeleton loaders, and smooth fade-in.
  */
-const Image = ({ src, alt, className = "", objectFit = "cover", height = "h-full" }) => {
+const Image = ({ src, alt, className = "", objectFit = "cover", objectPosition = "center", height = "h-full" }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef(null);
@@ -67,6 +67,7 @@ const Image = ({ src, alt, className = "", objectFit = "cover", height = "h-full
           }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className={`w-full h-full object-${objectFit} transition-transform duration-700 ease-out`}
+          style={{ objectPosition }}
         />
       )}
     </div>
