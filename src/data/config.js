@@ -38,8 +38,8 @@ export const artistConfig = {
 
   contact: {
     title: "Acquire a Piece",
-    phone: "209-273-7246",
-    whatsapp: "209-273-7246",
+    phone: "+1 209-273-7246",
+    whatsapp: "+1 209-273-7246",
     email: "lilystinson@protonmail.com",
     instagram: "_loveislily",
     instagramLink: "https://www.instagram.com/_loveislily/",
