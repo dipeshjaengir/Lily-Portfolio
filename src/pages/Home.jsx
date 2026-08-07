@@ -57,7 +57,7 @@ const Home = () => {
         {/* Full-bleed Background Artwork with Dark Overlay */}
         <motion.div 
           style={{ scale: heroBgScale }}
-          className="absolute right-0 top-0 bottom-0 w-full md:w-[75vw] lg:w-[65vw] z-0 pointer-events-none overflow-hidden"
+          className="absolute inset-0 z-0 pointer-events-none"
         >
           <motion.div 
             style={{ opacity: heroBgOpacity }}
@@ -68,24 +68,13 @@ const Home = () => {
               alt="Lily May Stinson - Hero Artwork" 
               height="h-full"
               objectFit="cover"
-              objectPosition="center 30%"
-              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-100 dark:brightness-[0.72] contrast-100 dark:contrast-[1.05] transition-all duration-500"
+              objectPosition="72% 35%"
             />
           </motion.div>
-          
-          {/* Subtle transition fade at the left edge of the portrait image container */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-warm-white via-warm-white/10 to-transparent dark:from-gallery-black dark:via-gallery-black/10 to-transparent transition-all duration-500 pointer-events-none hidden md:block" />
-
           {/* Original Heavy Vignette Overlays representing the original premium cinematic look */}
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/10 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
-          <div className="absolute inset-0 bg-transparent dark:bg-black/35 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/15 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-transparent dark:bg-black/40 transition-colors duration-500" />
         </motion.div>
-
-        {/* Left side solid background color block to fill desktop viewport */}
-        <div className="absolute left-0 top-0 bottom-0 w-0 md:w-[25vw] lg:w-[35vw] bg-warm-white dark:bg-gallery-black transition-colors duration-500 pointer-events-none z-0 hidden md:block" />
-
-        {/* Bottom gradient fade for scrolling transition */}
-        <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-65 transition-colors duration-500 pointer-events-none z-1" />
 
         {/* Hero Text Content */}
         <motion.div 
