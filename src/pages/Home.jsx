@@ -57,7 +57,7 @@ const Home = () => {
         {/* Full-bleed Background Artwork with Dark Overlay */}
         <motion.div 
           style={{ scale: heroBgScale }}
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-full md:w-[75vw] lg:w-[65vw] z-0 pointer-events-none overflow-hidden"
         >
           <motion.div 
             style={{ opacity: heroBgOpacity }}
@@ -68,8 +68,8 @@ const Home = () => {
               alt="Lily May Stinson - Hero Artwork" 
               height="h-full"
               objectFit="cover"
-              objectPosition="72% 35%"
-              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-[0.98] dark:brightness-[0.82] contrast-[1.03] dark:contrast-[1.08] transition-all duration-500"
+              objectPosition="center 30%"
+              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-[0.98] dark:brightness-[0.80] contrast-[1.03] dark:contrast-[1.08] transition-all duration-500"
             />
           </motion.div>
           {/* Subtle Depth-of-Field Cinematic Edge Blur */}
@@ -78,15 +78,19 @@ const Home = () => {
             style={{
               backdropFilter: "blur(1.5px)",
               WebkitBackdropFilter: "blur(1.5px)",
-              maskImage: "radial-gradient(circle at 72% 35%, transparent 35%, black 75%)",
-              WebkitMaskImage: "radial-gradient(circle at 72% 35%, transparent 35%, black 75%)"
+              maskImage: "radial-gradient(circle at center 35%, transparent 35%, black 75%)",
+              WebkitMaskImage: "radial-gradient(circle at center 35%, transparent 35%, black 75%)"
             }}
           />
           {/* Editorial Vignette Overlay with Museum Lighting Spotlight */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_35%,transparent_15%,rgba(250,249,246,0.1)_45%,rgba(250,249,246,0.45)_95%)] bg-warm-white/10 dark:bg-[radial-gradient(circle_at_72%_35%,transparent_20%,rgba(5,5,5,0.2)_55%,rgba(5,5,5,0.72)_95%)] dark:bg-black/15 transition-all duration-500 pointer-events-none" />
-          {/* Bottom gradient fade for scrolling transition */}
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-60 transition-colors duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center_35%,transparent_15%,rgba(250,249,246,0.1)_45%,rgba(250,249,246,0.45)_95%)] bg-warm-white/10 dark:bg-[radial-gradient(circle_at_center_35%,transparent_20%,rgba(5,5,5,0.2)_55%,rgba(5,5,5,0.72)_95%)] dark:bg-black/15 transition-all duration-500 pointer-events-none" />
         </motion.div>
+
+        {/* Left-to-right fade gradient to blend the portrait image into the background color */}
+        <div className="absolute left-0 top-0 bottom-0 w-full md:w-[85vw] lg:w-[75vw] bg-gradient-to-r from-warm-white via-warm-white/70 to-transparent dark:from-gallery-black dark:via-gallery-black/70 dark:to-transparent transition-all duration-500 pointer-events-none z-1 hidden md:block" />
+
+        {/* Bottom gradient fade for scrolling transition */}
+        <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-60 transition-colors duration-500 pointer-events-none z-1" />
 
         {/* Hero Text Content */}
         <motion.div 
