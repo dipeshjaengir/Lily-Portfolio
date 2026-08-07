@@ -127,13 +127,20 @@ const About = () => {
                 {services.map((service, idx) => (
                   <div 
                     key={idx}
-                    className="p-6 bg-theme-bg-card border border-theme-border relative hover:border-theme-accent transition-colors duration-300"
+                    className="p-6 bg-theme-bg-card border border-theme-border relative hover:border-theme-accent transition-colors duration-300 flex flex-col justify-between"
                   >
                     <div className="absolute top-0 left-0 w-2 h-[1px] bg-theme-accent" />
                     <div className="absolute top-0 left-0 w-[1px] h-2 bg-theme-accent" />
-                    <h4 className="font-serif text-base font-light text-theme-text tracking-wide uppercase">
-                      {service}
-                    </h4>
+                    <div>
+                      <h4 className="font-serif text-base font-light text-theme-text tracking-wide uppercase">
+                        {service.title}
+                      </h4>
+                      {service.description && (
+                        <p className="font-sans text-[10px] text-theme-text-muted mt-3 leading-relaxed tracking-wider normal-case opacity-85">
+                          {service.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

@@ -18,13 +18,16 @@ export const artistConfig = {
       "My artwork is coded with positive subliminals and affirmations that I feel are channeled from the Most High."
     ],
     services: [
-      "Original Canvas Paintings",
-      "Fine Art Prints (Coming Soon)",
-      "Shirts (Coming Soon)",
-      "Stickers (Coming Soon)",
-      "One-on-one Creative Sessions",
-      "Artist Collaborations",
-      "\"Find Your Flow\" Creative Guidance"
+      { title: "Canvas Paintings" },
+      { title: "Fine Art Prints (Eventually)" },
+      { title: "Shirts (In Progress)" },
+      { title: "Stickers" },
+      { title: "One-on-One Creative Sessions" },
+      { title: "Artist Collaborations" },
+      { 
+        title: "\"Find Your Flow\" – Creative Guidance", 
+        description: "One-on-one guidance helping fellow creators reconnect with their authenticity and creative flow." 
+      }
     ],
     profileImage: "/src/assets/profile/lily_profile.jpg"
   },
