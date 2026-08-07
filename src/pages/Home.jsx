@@ -69,28 +69,23 @@ const Home = () => {
               height="h-full"
               objectFit="cover"
               objectPosition="center 30%"
-              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-[0.98] dark:brightness-[0.80] contrast-[1.03] dark:contrast-[1.08] transition-all duration-500"
+              className="filter saturate-[1.02] dark:saturate-[1.02] brightness-100 dark:brightness-[0.72] contrast-100 dark:contrast-[1.05] transition-all duration-500"
             />
           </motion.div>
-          {/* Subtle Depth-of-Field Cinematic Edge Blur */}
-          <div 
-            className="absolute inset-0 transition-all duration-500 pointer-events-none"
-            style={{
-              backdropFilter: "blur(1.5px)",
-              WebkitBackdropFilter: "blur(1.5px)",
-              maskImage: "radial-gradient(circle at center 35%, transparent 35%, black 75%)",
-              WebkitMaskImage: "radial-gradient(circle at center 35%, transparent 35%, black 75%)"
-            }}
-          />
-          {/* Editorial Vignette Overlay with Museum Lighting Spotlight */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center_35%,transparent_15%,rgba(250,249,246,0.1)_45%,rgba(250,249,246,0.45)_95%)] bg-warm-white/10 dark:bg-[radial-gradient(circle_at_center_35%,transparent_20%,rgba(5,5,5,0.2)_55%,rgba(5,5,5,0.72)_95%)] dark:bg-black/15 transition-all duration-500 pointer-events-none" />
+          
+          {/* Subtle transition fade at the left edge of the portrait image container */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-warm-white via-warm-white/10 to-transparent dark:from-gallery-black dark:via-gallery-black/10 to-transparent transition-all duration-500 pointer-events-none hidden md:block" />
+
+          {/* Original Heavy Vignette Overlays representing the original premium cinematic look */}
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-white/10 via-transparent to-transparent dark:from-gallery-dark dark:via-gallery-dark/60 dark:to-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-transparent dark:bg-black/35 transition-colors duration-500" />
         </motion.div>
 
-        {/* Left-to-right fade gradient to blend the portrait image into the background color */}
-        <div className="absolute left-0 top-0 bottom-0 w-full md:w-[85vw] lg:w-[75vw] bg-gradient-to-r from-warm-white via-warm-white/70 to-transparent dark:from-gallery-black dark:via-gallery-black/70 dark:to-transparent transition-all duration-500 pointer-events-none z-1 hidden md:block" />
+        {/* Left side solid background color block to fill desktop viewport */}
+        <div className="absolute left-0 top-0 bottom-0 w-0 md:w-[25vw] lg:w-[35vw] bg-warm-white dark:bg-gallery-black transition-colors duration-500 pointer-events-none z-0 hidden md:block" />
 
         {/* Bottom gradient fade for scrolling transition */}
-        <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-60 transition-colors duration-500 pointer-events-none z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-warm-white via-transparent to-transparent dark:from-gallery-black dark:via-transparent dark:to-transparent opacity-65 transition-colors duration-500 pointer-events-none z-1" />
 
         {/* Hero Text Content */}
         <motion.div 
