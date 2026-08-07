@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { artistConfig } from '../data/config';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { Mail, MessageSquare, Send, Camera } from 'lucide-react';
 import Magnetic from '../components/Magnetic';
 import SectionContainer from '../components/SectionContainer';
 import SectionHeader from '../components/SectionHeader';
@@ -39,7 +39,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const whatsappNumber = "12092737246";
+    const whatsappNumber = artistConfig.contact.whatsapp.replace(/[^0-9]/g, "");
     const messageText = `Name: ${formState.name}
 Email: ${formState.email}
 Subject: ${formState.subject}
@@ -111,6 +111,21 @@ Message: ${formState.message}`;
                   </a>
                 </div>
               </div>
+
+              {/* VSCO */}
+              {artistConfig.contact.vsco && (
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-theme-bg-card border border-theme-border rounded-full transition-colors duration-500">
+                    <Camera size={16} strokeWidth={1.5} className="text-theme-text" />
+                  </div>
+                  <div>
+                    <span className="block text-[8px] tracking-[0.25em] text-theme-text-muted opacity-60 uppercase font-semibold">VSCO</span>
+                    <a href={artistConfig.contact.vscoLink} target="_blank" rel="noopener noreferrer" className="text-theme-text font-medium hover:text-theme-accent transition-colors">
+                      @{artistConfig.contact.vsco}
+                    </a>
+                  </div>
+                </div>
+              )}
 
               {/* Whatsapp */}
               <div className="flex items-center gap-4">

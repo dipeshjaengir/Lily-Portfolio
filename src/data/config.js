@@ -1,38 +1,46 @@
 export const artistConfig = {
   name: "Lily May Stinson",
-  title: "Curating Silence & Sensation",
-  subtitle: "Visual Artist • Printmaker • Mixed Media Explorer",
-  tagline: "Exploring the intersections of texture, tone, and organic geometry.",
+  brandName: "LOVEISLILY",
+  title: "LOVEISLILY",
+  subtitle: "Self-Taught Visual Artist & Creator",
+  tagline: "Self taught artist whose style emerged through doodling.",
   
   about: {
     title: "About the Artist",
-    bio: null,
-    
-    // Mother's Story (Dignified, hopeful storytelling for the About Page)
-    // story: {
-    //   title: "An Eye for the Unseen",
-    //   paragraphs: [
-    //     "A foundational shifts in Lily's artistic identity occurred as she watched her mother gradually lose her vision to a rare degenerative disease. Witnessing this slow transition from a world of sharp shapes to one of pure light, shadow, and sensation profoundly altered Lily's understanding of creativity.",
-    //     "Rather than drawing back, Lily found a renewed sense of purpose. She began to see the ability to perceive and create art not as a simple talent, but as a profound privilege. It taught her to appreciate the tactile quality of art—the carved grain of woodcuts, the heavy textures of plaster, and the structural depth of heavy-body acrylic paint.",
-    //     "Today, her work is infused with deep gratitude, resilience, and optimism. Lily's art does not dwell on the loss of sight, but celebrates the persistence of vision. Each piece stands as an act of hope and appreciation, respecting the silent strength of sensory memory and searching for light even in the deepest shadows."
-    //   ]
-    // },
-
+    bio: [
+      "Self taught artist whose style emerged through doodling.",
+      "I see my art as a tool for self mastery and a relationship with God. Learning how to create without judgement created a mirror for me to not judge myself.",
+      "I don't think when I create. I let the present moment lead me."
+    ],
+    experience: [
+      "I've been doodling since I could remember. As a child I doodled all over my papers. Over time they naturally developed into wiser abstracts.",
+      "Eventually I picked up painting as a teenager. Painting became my outlet for everything words could not express.",
+      "My artwork is coded with positive subliminals and affirmations that I feel are channeled from the Most High."
+    ],
+    services: [
+      "Original Canvas Paintings",
+      "Fine Art Prints (Coming Soon)",
+      "Shirts (Coming Soon)",
+      "Stickers (Coming Soon)",
+      "One-on-one Creative Sessions",
+      "Artist Collaborations",
+      "\"Find Your Flow\" Creative Guidance"
+    ],
     profileImage: "/src/assets/profile/lily_profile.jpg"
   },
 
   philosophy: null,
-
   statistics: [],
-
   timeline: [],
 
   contact: {
     title: "Acquire a Piece",
-    phone: "+1 (209) 273-7246",
-    whatsapp: "+1 (209) 273-7246",
-    email: null,
+    phone: "209-273-7246",
+    whatsapp: "209-273-7246",
+    email: "lilystinson@protonmail.com",
     instagram: "_loveislily",
-    instagramLink: "https://www.instagram.com/_loveislily/"
+    instagramLink: "https://www.instagram.com/_loveislily/",
+    vsco: "loveislily",
+    vscoLink: "https://vsco.co/loveislily"
   }
 };

@@ -12,17 +12,19 @@ import Divider from '../components/Divider';
 /**
  * About Room (Theme-Agnostic, driven by design tokens).
  * Showcases the portrait image inside a museum-like hanging frame,
- * followed by her real creative story, and an elegant inquiry CTA.
+ * followed by her real creative story, experience, services, and an elegant inquiry CTA.
  */
 const About = () => {
   const profileImg = getProfileImage(artistConfig.about.profileImage);
-  const story = artistConfig.about.story;
+  const bio = artistConfig.about.bio;
+  const experience = artistConfig.about.experience;
+  const services = artistConfig.about.services;
 
   return (
     <div className="w-full bg-theme-bg text-theme-text pt-32 pb-24 px-6 md:px-12 transition-colors duration-500">
       <Helmet>
         <title>About Lily May Stinson | Artist Philosophy & Story</title>
-        <meta name="description" content="Discover the artistic identity and biography of Lily May Stinson, exploring her specialized printmaking and sensory inspiration." />
+        <meta name="description" content="Discover the artistic identity and biography of Lily May Stinson, exploring her self-taught abstract doodling and creative expression." />
       </Helmet>
 
       {/* Standardized Section Container */}
@@ -66,8 +68,7 @@ const About = () => {
 
           {/* Right Column: Editorial Biography / Creative Statement */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Biography text is null, so we omit biography and proceed directly to Creative Philosophy Story */}
-            {story && (
+            {bio && bio.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -75,11 +76,11 @@ const About = () => {
                 className="text-left"
               >
                 <span className="text-[9px] font-sans tracking-[0.25em] text-theme-accent uppercase font-semibold block mb-4">
-                  {story.title || "CREATIVE STATEMENT"}
+                  ARTIST BIO
                 </span>
 
                 <div className="font-serif text-lg md:text-xl font-light text-theme-text-muted leading-relaxed space-y-6 md:space-y-8 italic">
-                  {story.paragraphs && story.paragraphs.map((para, idx) => (
+                  {bio.map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
                 </div>
@@ -88,10 +89,62 @@ const About = () => {
           </div>
         </div>
 
-        {/* 2. Divider Line separating sections */}
+        {/* 2. Experience Section */}
+        {experience && experience.length > 0 && (
+          <>
+            <Divider className="my-20" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start text-left">
+              <div className="lg:col-span-4">
+                <span className="text-[9px] font-sans tracking-[0.25em] text-theme-accent uppercase font-semibold block mb-2">
+                  THE JOURNEY
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl font-light text-theme-text uppercase tracking-wide">
+                  Creative Experience
+                </h3>
+              </div>
+              <div className="lg:col-span-8 font-sans text-xs md:text-sm text-theme-text-muted leading-relaxed space-y-6 tracking-wide">
+                {experience.map((exp, idx) => (
+                  <p key={idx}>{exp}</p>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* 3. Services / Offerings Section */}
+        {services && services.length > 0 && (
+          <>
+            <Divider className="my-20" />
+            <div className="text-left">
+              <span className="text-[9px] font-sans tracking-[0.25em] text-theme-accent uppercase font-semibold block mb-4">
+                OFFERINGS
+              </span>
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-theme-text uppercase tracking-wide mb-10">
+                Services & Creative Work
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service, idx) => (
+                  <div 
+                    key={idx}
+                    className="p-6 bg-theme-bg-card border border-theme-border relative hover:border-theme-accent transition-colors duration-300"
+                  >
+                    <div className="absolute top-0 left-0 w-2 h-[1px] bg-theme-accent" />
+                    <div className="absolute top-0 left-0 w-[1px] h-2 bg-theme-accent" />
+                    <h4 className="font-serif text-base font-light text-theme-text tracking-wide uppercase">
+                      {service}
+                    </h4>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* 4. Divider Line separating sections */}
         <Divider className="my-20" />
 
-        {/* 3. Contact & Inquiry CTA Block */}
+        {/* 5. Contact & Inquiry CTA Block */}
         <div className="w-full flex flex-col items-center text-center max-w-2xl mx-auto py-8">
           <span className="text-[10px] font-sans tracking-[0.3em] text-theme-text-muted uppercase font-semibold block mb-4">
             ACQUIRE & INQUIRE

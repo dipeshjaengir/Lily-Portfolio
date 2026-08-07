@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { artistConfig } from '../data/config';
 
 /**
  * Reusable Unified Brand Logo component.
  * Ensures consistent typography hierarchy and zero character clipping across all screen sizes.
  */
 const Logo = ({ animate = false }) => {
-  const title = "LILY MAY STINSON";
+  const title = artistConfig.brandName || artistConfig.name || "LILY MAY STINSON";
 
   const logoStyle = {
     fontSize: "clamp(0.72rem, 4.2vw, 1.25rem)", 

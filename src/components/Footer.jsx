@@ -1,16 +1,12 @@
 import React from 'react';
 import { artistConfig } from '../data/config';
 import Magnetic from './Magnetic';
-import { useTheme } from '../utils/ThemeContext';
 
 /**
  * Editorial Footer component.
  * Displays simple branding, visual artist credentials, and magnetic contact CTAs.
  */
 const Footer = () => {
-  const { theme } = useTheme();
-  const isDarkPage = theme === 'dark';
-
   return (
     <footer 
       className="relative z-10 w-full mt-24 px-6 md:px-12 py-12 md:py-16 border-t border-theme-border bg-theme-bg-surface transition-colors duration-500"
@@ -20,7 +16,7 @@ const Footer = () => {
         {/* Left Side: Branding */}
         <div className="text-center md:text-left">
           <h4 className="font-serif text-lg tracking-[0.25em] uppercase font-light">
-            Lily May Stinson
+            {artistConfig.name}
           </h4>
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase opacity-55 mt-1.5">
             {artistConfig.subtitle}
@@ -50,6 +46,18 @@ const Footer = () => {
                 INSTAGRAM
               </a>
             </Magnetic>
+            {artistConfig.contact.vsco && (
+              <Magnetic range={30} strength={0.3}>
+                <a 
+                  href={artistConfig.contact.vscoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-75 transition-opacity"
+                >
+                  VSCO
+                </a>
+              </Magnetic>
+            )}
             <Magnetic range={30} strength={0.3}>
               <a 
                 href={`https://wa.me/${artistConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
@@ -71,7 +79,7 @@ const Footer = () => {
 
       {/* Trademark Line */}
       <div className="max-w-7xl mx-auto mt-12 md:mt-16 pt-8 border-t border-current opacity-[0.04] flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] tracking-[0.3em] uppercase">
-        <span>&copy; 2026 LILY MAY STINSON. ALL RIGHTS RESERVED.</span>
+        <span>&copy; 2026 {artistConfig.name.toUpperCase()}. ALL RIGHTS RESERVED.</span>
         
       </div>
     </footer>
