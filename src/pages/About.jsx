@@ -78,8 +78,7 @@ const About = () => {
                 <span className="text-[9px] font-sans tracking-[0.25em] text-theme-accent uppercase font-semibold block mb-4">
                   ARTIST BIO
                 </span>
-
-                <div className="font-serif text-lg md:text-xl font-light text-theme-text-muted leading-relaxed space-y-6 md:space-y-8 italic">
+                <div className="font-sans text-xs md:text-sm text-theme-text-muted leading-relaxed space-y-6 tracking-wide">
                   {bio.map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
