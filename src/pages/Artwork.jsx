@@ -118,6 +118,12 @@ const Artwork = () => {
                 <span className="text-theme-text font-semibold">{artwork.dimensions}</span>
               </div>
             )}
+            {artwork.price && (
+              <div className="flex justify-between items-center">
+                <span className="text-theme-text-muted font-medium">Price</span>
+                <span className="text-theme-text font-semibold">{artwork.price}</span>
+              </div>
+            )}
             {artwork.status && (
               <div className="flex justify-between items-center">
                 <span className="text-theme-text-muted font-medium">Availability Status</span>

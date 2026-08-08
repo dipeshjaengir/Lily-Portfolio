@@ -22,7 +22,6 @@ export const artistConfig = {
       { title: "Fine Art Prints (Eventually)" },
       { title: "Shirts (In Progress)" },
       { title: "Stickers" },
-      { title: "One-on-One Creative Sessions" },
       { title: "Artist Collaborations" },
       { 
         title: "\"Find Your Flow\" – Creative Guidance", 

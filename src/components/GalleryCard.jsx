@@ -74,8 +74,8 @@ const GalleryCard = ({
           {/* Details border-t divider and status links */}
           <div className="pt-2.5 border-t border-theme-border flex justify-between items-center text-[9px] font-sans tracking-widest uppercase font-medium">
             {showStatus && artwork.status && (
-              <span className={artwork.status === 'Available' ? 'text-theme-accent font-semibold' : 'text-theme-text-muted opacity-50'}>
-                {artwork.status}
+              <span className={artwork.status === 'Available' || artwork.status === 'For Sale' ? 'text-theme-accent font-semibold' : 'text-theme-text-muted opacity-50'}>
+                {artwork.price ? `${artwork.status} • ${artwork.price}` : artwork.status}
               </span>
             )}
             
