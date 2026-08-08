@@ -78,6 +78,7 @@ Message: ${formState.message}`;
               label="GET IN TOUCH" 
               title="Let's Collaborate" 
               className="mb-8 md:mb-12"
+              titleClassName="text-[1.8rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[1.9rem] xl:text-[2.5rem] 2xl:text-[3rem] break-words whitespace-normal"
             />
             <p className="font-sans text-xs md:text-sm leading-relaxed text-theme-text-muted opacity-80 tracking-wider mb-12">
               For representations, acquisitions, custom commissions, or simply a gallery conversation. Drop a message via the form or reach out directly on studio channels.

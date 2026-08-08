@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SectionHeader = ({ label, title, className = "" }) => {
+const SectionHeader = ({ label, title, className = "", titleClassName = "" }) => {
   return (
     <header className={`max-w-7xl mx-auto mb-16 md:mb-24 text-left ${className}`}>
       {label && (
@@ -10,8 +10,8 @@ const SectionHeader = ({ label, title, className = "" }) => {
       )}
       {title && (
         <h1 
-          className="font-serif font-light tracking-wide uppercase leading-[1.15] text-theme-text"
-          style={{ fontSize: "clamp(1.8rem, 7vw, 4.5rem)" }}
+          className={`font-serif font-light tracking-wide uppercase leading-[1.15] text-theme-text ${titleClassName}`}
+          style={titleClassName ? {} : { fontSize: "clamp(1.8rem, 7vw, 4.5rem)" }}
         >
           {title}
         </h1>
