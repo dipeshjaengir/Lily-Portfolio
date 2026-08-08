@@ -22,8 +22,8 @@ const Home = () => {
   const { theme } = useTheme();
   const isDarkTheme = theme === 'dark';
 
-  // Extract featured items for Home showcase
-  const featuredArtworks = artworks.filter(art => art.featured);
+  // Extract featured items for Home showcase (excluding raw pen-art doodles to declutter scroll)
+  const featuredArtworks = artworks.filter(art => art.featured && art.category !== 'pen-art');
 
   // Scroll animations for parallax effects
   const { scrollY } = useScroll();

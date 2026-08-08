@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Syncopate:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Tenor+Sans&display=swap');
 
 @import "tailwindcss";
 
@@ -26,7 +26,7 @@
   --color-accent-pink-border: #E5C2C9;
   --color-accent-purple-border: #C3BCDB;
 
-  --font-serif: "Syne", "Tenor Sans", sans-serif;
+  --font-serif: "Syncopate", "Syne", "Tenor Sans", sans-serif;
   --font-sans: "Outfit", "Inter", sans-serif;
 }
 
