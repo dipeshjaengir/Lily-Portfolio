@@ -3,12 +3,12 @@ export const artistConfig = {
   brandName: "LOVEISLILY",
   title: "LOVEISLILY",
   subtitle: "Self-Taught Visual Artist & Creator",
-  tagline: "Self taught artist whose style emerged through doodling.",
+  tagline: "Artist whose style emerged through doodling.",
   
   about: {
     title: "About the Artist",
     bio: [
-      "Self taught artist whose style emerged through doodling.",
+      "Artist whose style emerged through doodling.",
       "I see my art as a tool for self mastery and a relationship with God. Learning how to create without judgement created a mirror for me to not judge myself.",
       "I don't think when I create. I let the present moment lead me."
     ],
