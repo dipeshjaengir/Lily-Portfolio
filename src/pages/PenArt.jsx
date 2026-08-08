@@ -48,7 +48,6 @@ const PenArt = () => {
                   artwork={art}
                   resolvedImage={resolvedImg}
                   onZoomClick={() => setActiveArtwork(art)}
-                  linkTo={`/artwork/${art.id}`}
                 />
               );
             })}

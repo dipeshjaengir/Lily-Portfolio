@@ -141,6 +141,19 @@ export const artworks = [
   // Category: Pen Art & Monochrome Prints (Pen Art Room)
   // --------------------------------------------------------------------------
   {
+    id: "pen-17",
+    title: null,
+    category: "pen-art",
+    medium: null,
+    dimensions: null,
+    year: null,
+    status: null,
+    description: null,
+    placeholderUrl: null,
+    localPath: "/src/assets/artworks/pen-art/pen_art_17.jpg",
+    featured: true
+  },
+  {
     id: "pen-01",
     title: null,
     category: "pen-art",
@@ -346,19 +359,6 @@ export const artworks = [
     description: null,
     placeholderUrl: null,
     localPath: "/src/assets/artworks/pen-art/pen_art_16.jpg",
-    featured: true
-  },
-  {
-    id: "pen-17",
-    title: null,
-    category: "pen-art",
-    medium: null,
-    dimensions: null,
-    year: null,
-    status: null,
-    description: null,
-    placeholderUrl: null,
-    localPath: "/src/assets/artworks/pen-art/pen_art_17.jpg",
     featured: true
   },
 
