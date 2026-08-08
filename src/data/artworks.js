@@ -153,32 +153,7 @@ export const artworks = [
     localPath: "/src/assets/artworks/pen-art/pen_art_17.jpg",
     featured: true
   },
-  {
-    id: "pen-01",
-    title: null,
-    category: "pen-art",
-    medium: null,
-    dimensions: null,
-    year: null,
-    status: null,
-    description: null,
-    placeholderUrl: null,
-    localPath: "/src/assets/artworks/pen-art/pen_art_01.jpg",
-    featured: true
-  },
-  {
-    id: "pen-02",
-    title: null,
-    category: "pen-art",
-    medium: null,
-    dimensions: null,
-    year: null,
-    status: null,
-    description: null,
-    placeholderUrl: null,
-    localPath: "/src/assets/artworks/pen-art/pen_art_02.jpg",
-    featured: true
-  },
+
   {
     id: "pen-03",
     title: null,
